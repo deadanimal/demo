@@ -1,0 +1,279 @@
+
+{% extends "base_loggedin.html" %}
+{% load static %}
+
+{% block title %}
+Fiat Off-Ramp Gateway
+{% endblock %}
+
+{% block content %} 
+<div class="main-content" id="panel">
+
+    <div class="container-fluid pt-6">
+        <div class="row">
+
+            <div class="col-2">
+            
+            </div>
+      
+            <div class="col-8">
+        <div class="card-wrapper">
+          
+          <div class="card">
+            <!-- Card header -->
+            <div class="card-header">
+              <h1 class="mb-0">Fiat On-Ramp Gateway</h1>
+            </div>
+            <!-- Card body -->
+            <div class="card-body">
+              <form>
+
+                <div class="row">
+
+                  <div class="col">
+                    <div class="form-group">
+                      <label>Bank Account Type</label>
+                      <select class="form-control" data-toggle="select">
+                        <option>US Bank Account</option>
+                        <option>Non-US Bank Account - IBAN Supported</option>
+                        <option>Non-US Bank Account - IBAN Not Supported</option>
+                      </select>   
+                    </div>  
+                  </div>
+
+                  <div class="col">
+                    <div class="form-group">
+                      <label>Amount</label>
+                      <div class="input-group input-group-merge">
+                        <!-- <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fas fa-credit-card"></i></span>
+                        </div> -->
+                        <input class="form-control" placeholder="Ramp amount" type="number">
+                        <div class="input-group-append">
+                          <span class="input-group-text"><small class="font-weight-bold">USD</small></span>
+                        </div>
+                      </div>
+                    </div>  
+                  </div>
+
+                  <div class="col">
+                    <div class="form-group">
+                      <label>DCB Wallet</label>
+                      <select class="form-control" data-toggle="select">
+                        <option>---</option>
+                      </select>   
+                    </div>    
+                  </div>
+
+                  <div class="col">
+
+                    <div class="form-group">
+                      <label>Account Number</label>
+                      <div class="input-group input-group-merge">
+                        <input class="form-control" placeholder="Depositor Bank Account Number" type="text">
+                      </div>
+                    </div>                 
+                </div>
+                
+                <div class="col">
+
+                  <div class="form-group">
+                    <label>Routing Number</label>
+                    <div class="input-group input-group-merge">
+                      <input class="form-control" placeholder="Depositor Bank Routing Number" type="text">
+                    </div>
+                  </div>                 
+              </div>                
+
+                </div>
+
+                <div class="row py-3">
+                  <h2 class="px-3 ">Bank Account Details</h2>
+                </div>
+
+                <div class="row">
+
+                  <div class="col">
+                    <div class="form-group">
+                      <label>Name</label>
+                      <div class="input-group input-group-merge">
+                        <input class="form-control" placeholder="Name" type="text">
+                      </div>
+                    </div>                 
+                  </div>      
+                  
+                  <div class="col">
+                    <div class="form-group">
+                      <label>City</label>
+                      <div class="input-group input-group-merge">
+                        <input class="form-control" placeholder="City" type="text">
+                      </div>
+                    </div>                 
+                  </div>     
+                  
+                  <div class="col">
+                    <div class="form-group">
+                      <label>Country</label>
+                      <div class="input-group input-group-merge">
+                        <input class="form-control" placeholder="Country" type="text">
+                      </div>
+                    </div>                 
+                  </div>     
+                                    
+                  <div class="col">
+                    <div class="form-group">
+                      <label>State / County / Province / Region</label>
+                      <div class="input-group input-group-merge">
+                        <input class="form-control" placeholder="State / County / Province / Region" type="text">
+                      </div>
+                    </div>                 
+                  </div>  
+                  
+                  <div class="col">
+                    <div class="form-group">
+                      <label>Postal Code</label>
+                      <div class="input-group input-group-merge">
+                        <input class="form-control" placeholder="Postal Code" type="text">
+                      </div>
+                    </div>                 
+                  </div>                     
+
+
+                </div>
+
+                <div class="row">
+                  <div class="col">
+                    <div class="form-group">
+                      <label>Address Line 1</label>
+                      <div class="input-group input-group-merge">
+                        <input class="form-control" placeholder="Address Line 1" type="text">
+                      </div>
+                    </div>                 
+                  </div>   
+                  
+                  <div class="col">
+                    <div class="form-group">
+                      <label>Address Line 2</label>
+                      <div class="input-group input-group-merge">
+                        <input class="form-control" placeholder="Address Line 2" type="text">
+                      </div>
+                    </div>                 
+                  </div>                  
+                </div>
+
+                <div class="row py-3">
+                  <h2 class="px-3 ">Bank Details</h2>
+                </div>
+
+                <div class="row">
+
+                  <div class="col">
+                    <div class="form-group">
+                      <label>Bank Name</label>
+                      <div class="input-group input-group-merge">
+                        <input class="form-control" placeholder="Name" type="text">
+                      </div>
+                    </div>                 
+                  </div>      
+                  
+                  <div class="col">
+                    <div class="form-group">
+                      <label>City</label>
+                      <div class="input-group input-group-merge">
+                        <input class="form-control" placeholder="City" type="text">
+                      </div>
+                    </div>                 
+                  </div>     
+                  
+                  <div class="col">
+                    <div class="form-group">
+                      <label>Country</label>
+                      <div class="input-group input-group-merge">
+                        <input class="form-control" placeholder="Country" type="text">
+                      </div>
+                    </div>                 
+                  </div>     
+                                    
+                  <div class="col">
+                    <div class="form-group">
+                      <label>State / County / Province / Region</label>
+                      <div class="input-group input-group-merge">
+                        <input class="form-control" placeholder="State / County / Province / Region" type="text">
+                      </div>
+                    </div>                 
+                  </div>                  
+                           
+
+
+                </div>                
+
+
+
+
+
+                 
+
+               
+                   
+                
+                <button type="submit" class="btn btn-default btn-block">Submit</button>
+                                  
+                
+
+              </form>
+            </div>
+          </div>
+
+        </div>
+            </div>
+
+            <div class="col-2">
+            
+            </div>
+
+
+        </div>
+    </div>
+  
+</div>
+
+{% if messages %}
+<div class="modal fade" id="succesfulModal" tabindex="1" role="dialog" aria-labelledby="modal-notification" aria-hidden="true">
+<div class="modal-dialog modal-danger modal-dialog-centered modal-" role="document">
+  <div class="modal-content bg-gradient-danger">
+    
+      <div class="modal-header">
+          <h6 class="modal-title" id="modal-title-notification">Gateway Transaction Initiated</h6>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+          </button>
+      </div>
+      
+      <div class="modal-body">
+        
+          <div class="py-3 text-center">
+              <i class="ni ni-bell-55 ni-3x"></i>
+              <h4 class="heading mt-4">You should read this!</h4>
+              <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+          </div>
+          
+      </div>
+      
+      <div class="modal-footer">
+          <!-- <button type="button" class="btn btn-white">Ok, Got it</button> -->
+          <button type="button" class="btn btn-link text-white ml-auto" data-dismiss="modal">Close</button>
+      </div>
+      
+  </div>
+</div>
+</div>
+
+{% endif %}
+
+{% endblock %}
+
+{% block javascript %}
+<script>
+$('#succesfulModal').modal('show');
+</script>
+{% endblock %}  

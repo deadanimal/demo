@@ -1,0 +1,180 @@
+
+{% extends "base_loggedin.html" %}
+{% load static %}
+
+{% block title %}
+Dashboard
+{% endblock %}
+
+{% block content %} 
+<div class="main-content" id="panel">
+
+  <!-- Page content -->
+    <div class="container-fluid pt-6">
+        <div class="row px-6">
+
+            <div class="col-lg-4">
+
+        <div class="card-wrapper">
+
+          <div class="card">
+            <!-- Card header -->
+            <div class="card-header">
+              <h3 class="mb-0">Profile</h3>
+            </div>
+            <!-- Card body -->
+            <div class="card-body">
+              <form>
+                <!-- Input groups with icon -->
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <div class="input-group input-group-merge">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                        <input class="form-control" placeholder="Your name" type="text">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <div class="input-group input-group-merge">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                        </div>
+                        <input class="form-control" placeholder="Email address" type="email">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <div class="input-group input-group-merge">
+                        <input class="form-control" placeholder="Location" type="text">
+                        <div class="input-group-append">
+                          <span class="input-group-text"><i class="fas fa-map-marker"></i></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <div class="input-group input-group-merge">
+                        <input class="form-control" placeholder="Password" type="password">
+                        <div class="input-group-append">
+                          <span class="input-group-text"><i class="fas fa-eye"></i></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Input groups with icon -->
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <div class="input-group input-group-merge">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fas fa-credit-card"></i></span>
+                        </div>
+                        <input class="form-control" placeholder="Payment method" type="text">
+                        <div class="input-group-append">
+                          <span class="input-group-text"><small class="font-weight-bold">USD</small></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <div class="input-group input-group-merge">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fas fa-globe-americas"></i></span>
+                        </div>
+                        <input class="form-control" placeholder="Phone number" type="text">
+                        <div class="input-group-append">
+                          <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+
+        </div>
+
+            </div>
+      
+            <div class="col-lg-8">
+        <div class="card-wrapper">
+
+          <div class="card">
+            
+            <div class="card-header">
+              <h3 class="mb-0">Action Item</h3>
+            </div>
+            
+            <div class="card-body">
+              <form>
+
+                <div class="row">
+
+                  
+                  <div class="col-md-3">
+                    <a href="/deposits/on">on-ramp</a>
+                  </div>
+
+
+                  <div class="col-md-3">
+                    <a href="/deposits/off">off-ramp</a>
+                  </div>   
+
+                  
+                  <div class="col-md-3">
+                    <a href="/wallets/in">transfer-in</a>
+                  </div>
+
+                  <div class="col-md-3">
+                    <a href="/wallets/out">transfer-out</a>
+                  </div>                   
+
+
+                </div>
+
+              </form>
+            </div>
+          </div>
+
+          <div class="card">
+            <!-- Card header -->
+            <div class="card-header">
+              <h3 class="mb-0">Transaction History</h3>
+            </div>
+            <!-- Card body -->
+            <div class="card-body">
+              <form>
+                <select class="form-control" data-toggle="select">
+                  <option>Alerts</option>
+                  <option>Badges</option>
+                  <option>Buttons</option>
+                  <option>Cards</option>
+                  <option>Forms</option>
+                  <option>Modals</option>
+                </select>
+              </form>
+            </div>
+          </div>
+
+        </div>
+            </div>
+
+        </div>
+    </div>
+  
+</div>
+{% endblock %}
+
+{% block javascript %}
+{% endblock %}  

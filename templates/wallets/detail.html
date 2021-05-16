@@ -1,0 +1,64 @@
+
+{% extends "base_loggedin.html" %}
+{% load static %}
+
+{% block title %}
+Wallet Detail
+{% endblock %}
+
+{% block content %} 
+<div class="main-content" id="panel">
+
+  <div class="container-fluid pt-6">
+    <div class="row">
+  
+        <div class="col-lg-4">
+    <div class="card-wrapper">
+
+      <div class="card">
+        
+        <div class="card-header">
+          <h1 class="mb-0">{{ wallet.nickname }}</h1>
+          
+        </div>
+        
+        <div class="card-body">
+          {{ wallet.address }}
+          <a href="/api/wallets/{{ wallet.id }}/deactivate">
+            <button class="btn btn-warning">Deactivate</button>
+          </a>
+          
+        </div>
+      </div>
+
+
+    </div>
+        </div>
+
+        <div class="col-lg-8">
+    <div class="card-wrapper">
+
+      <div class="card">
+        
+        <div class="card-header">
+          <h1 class="mb-0">Transaction</h1>
+        </div>
+        
+        <div class="card-body">
+          list of transaction
+        </div>
+      </div>
+
+
+    </div>          
+        </div>
+
+    </div>
+  </div>  
+  
+  
+</div>
+{% endblock %}
+
+{% block javascript %}
+{% endblock %}  

@@ -1,0 +1,1 @@
+web: gunicorn dcb.wsgi --max-requests 100 -w 4
