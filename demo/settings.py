@@ -11,8 +11,7 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
     'localhost',
     
-    'dcb.my',
-    'simple-api-2bcgw.ondigitalocean.app'
+    'pipe.my',
 ]
 
 
@@ -52,7 +51,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'dcb.urls'
+ROOT_URLCONF = 'demo.urls'
 
 TEMPLATES = [
     {
@@ -71,7 +70,7 @@ TEMPLATES = [
 ]
 
 
-WSGI_APPLICATION = 'dcb.wsgi.application'
+WSGI_APPLICATION = 'demo.wsgi.application'
 
 DATABASES = {
     'default': {
