@@ -11,7 +11,9 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
     'localhost',
     
+    'demo-p7x4j.ondigitalocean.app',
     'pipe.my',
+    'prototype.com.my'
 ]
 
 
