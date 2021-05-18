@@ -13,7 +13,7 @@ ALLOWED_HOSTS = [
     
     'demo-p7x4j.ondigitalocean.app',
     'demoapp.com.my',
-    'prototype.com.my'
+    'demo.pipeline.com.my'
 ]
 
 
