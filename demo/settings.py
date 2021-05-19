@@ -30,7 +30,6 @@ INSTALLED_APPS = [
     'corsheaders',
     'django_filters',
     'rest_framework',
-    'djmoney',
 
 
     'accounts',
@@ -76,7 +75,7 @@ WSGI_APPLICATION = 'demo.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
     }
 }
 
@@ -85,7 +84,7 @@ db_from_env = dj_database_url.config(default=config('DATABASE_URL'), conn_max_ag
 DATABASES['default'].update(db_from_env)
 
 if any(db_from_env):
-    DATABASES['default']['ENGINE'] = 'django.db.backends.mysql'
+    DATABASES['default']['ENGINE'] = 'django.contrib.gis.db.backends.postgis'
 
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -117,6 +116,8 @@ USE_L10N = True
 
 USE_TZ = True
 
+GDAL_LIBRARY_PATH = os.getenv('GDAL_LIBRARY_PATH')
+GEOS_LIBRARY_PATH = os.getenv('GEOS_LIBRARY_PATH')
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
