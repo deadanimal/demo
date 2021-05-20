@@ -75,7 +75,7 @@ WSGI_APPLICATION = 'demo.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'ENGINE': 'django.db.backends.mysql',
     }
 }
 
@@ -84,7 +84,7 @@ db_from_env = dj_database_url.config(default=config('DATABASE_URL'), conn_max_ag
 DATABASES['default'].update(db_from_env)
 
 if any(db_from_env):
-    DATABASES['default']['ENGINE'] = 'django.contrib.gis.db.backends.postgis'
+    DATABASES['default']['ENGINE'] = 'django.db.backends.mysql'
 
 
 AUTH_PASSWORD_VALIDATORS = [
