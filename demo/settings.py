@@ -11,7 +11,7 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
     'localhost',
     
-    'demo-p7x4j.ondigitalocean.app',
+    'demo-2qr7c.ondigitalocean.app',
     'demoapp.com.my',
     'demo.pipeline.com.my'
 ]
