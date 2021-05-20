@@ -33,9 +33,6 @@ INSTALLED_APPS = [
 
 
     'accounts',
-    'chains',
-    'deposits',
-    'wallets',
     'pages',
 
 ]
