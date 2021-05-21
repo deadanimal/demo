@@ -1,0 +1,264 @@
+
+{% extends "jpj_osc/base.html" %}
+{% load static %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+<div class="main-content">
+    <!-- Header -->
+    <div class="header bg-default pt-5 pb-7">
+      <div class="container">
+        <div class="header-body">
+          <div class="row align-items-center">
+            <div class="col-lg-6">
+              <div class="pr-5">
+                <h1 class="display-2 text-white font-weight-bold mb-0">JPJ OSC</h1>
+                <h2 class="display-4 text-white font-weight-light">The gateway to ecosystem of blockchains for DeFi and modern internet!</h2>
+                <p class="text-white mt-4">A highly scalable, fast and secure blockchain platform for distributed applications, decentralised finance and the new internet economy.</p>
+                <div class="mt-5">                  
+                  <a href="/deposits" class="btn btn-success my-2">Deposit</a>
+                  <a href="/pages/ecosystem" class="btn btn-secondary my-2">Explore Ecosystem</a>
+                </div>
+              </div>
+            </div>
+        <div class="col-lg-6">
+          <div class="row pt-5">
+            <div class="col-md-6">
+              <div class="card">
+                <div class="card-body">
+                  <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow mb-4">
+                    <i class="fas fa-exchange-alt"></i>
+                  </div>
+                  <h5 class="h3">Swap</h5>
+                  <p>DCB Swap offers the lowest fee & fastest transaction.</p>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-body">
+                  <div class="icon icon-shape bg-gradient-info text-white rounded-circle shadow mb-4">
+                    <i class="far fa-credit-card"></i>
+                  </div>
+                  <h5 class="h3">Payment</h5>
+                  <p>
+                    Accept payments in the matter of seconds. Targeted for internet business.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 pt-lg-5 pt-4">
+              <div class="card mb-4">
+                <div class="card-body">
+                  <div class="icon icon-shape bg-gradient-success text-white rounded-circle shadow mb-4">
+                    <i class="fas fa-balance-scale"></i>
+                  </div>
+                  <h5 class="h3">Finance</h5>
+                  <p>
+                    Decentralised finance applications thrive on DCB Platform due to ease of use.
+                  </p>
+                </div>
+              </div>
+              <div class="card mb-4">
+                <div class="card-body">
+                  <div class="icon icon-shape bg-gradient-warning text-white rounded-circle shadow mb-4">
+                    <i class="fas fa-wifi"></i>
+                  </div>
+                  <h5 class="h3">Internet</h5>
+                  <p>IoT based businesses use DCB for micropayments among others.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+          </div>
+        </div>
+      </div>
+      <div class="separator separator-bottom separator-skew zindex-100">
+        <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <polygon class="fill-default" points="2560 0 2560 100 0 100"></polygon>
+        </svg>
+      </div>
+    </div>
+
+    <!-- <section class="py-6">
+      <div class="container">
+        <div class="row row-grid align-items-center">
+          <div class="col-md-6 order-md-2">
+            <img src="{% static 'assets/img/theme/landing-1.png' %}" class="img-fluid">
+          </div>
+          <div class="col-md-6 order-md-1">
+            <div class="pr-md-5">
+              <h1>Chain Management</h1>
+              <p>
+                Chain Management enables users on DCB Platform to develop, deploy, operate &amp; maintain own blockchain or public chains. This enables 
+                non-profesional developers to use advanced tools to use and develop chains!
+              </p>
+              <ul class="list-unstyled mt-5">
+                <li class="py-2">
+                  <div class="d-flex align-items-center">
+                    <div>
+                      <div class="badge badge-circle badge-success mr-3">
+                        <i class="ni ni-settings-gear-65"></i>
+                      </div>
+                    </div>
+                    <div><h4 class="mb-0">Lowest fees in the market</h4></div>
+                  </div>
+                </li>
+                <li class="py-2">
+                  <div class="d-flex align-items-center">
+                    <div>
+                      <div class="badge badge-circle badge-success mr-3">
+                        <i class="ni ni-html5"></i>
+                      </div>
+                    </div>
+                    <div><h4 class="mb-0">Most diverse projects available</h4></div>
+                  </div>
+                </li>
+                <li class="py-2">
+                  <div class="d-flex align-items-center">
+                    <div>
+                      <div class="badge badge-circle badge-success mr-3">
+                        <i class="ni ni-satisfied"></i>
+                      </div>
+                    </div>
+                    <div><h4 class="mb-0">Fastest &amp; easiest way to develop!</h4></div>
+                  </div>
+                </li>
+              </ul>
+              <a
+                href="/chains/"
+                class="font-weight-bold text-success mt-5">Explore Chain Management</a>          
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+    <section class="py-6">
+      <div class="container">
+        <div class="row row-grid align-items-center">
+          <div class="col-md-6">
+            <img src="{% static 'assets/img/theme/landing-2.png' %}" class="img-fluid">
+          </div>
+          <div class="col-md-6">
+            <div class="pr-md-5">
+              <h1>Blockchain Fiat Gateway</h1>
+              <p>
+                Convert your fiat money such as USD or EUR into a token or a coin through DCB Platform. 
+              </p>
+              <a
+                href="/deposits/on"
+                class="font-weight-bold text-warning mt-5">Explore Fiat Gateway</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-6">
+      <div class="container">
+        <div class="row row-grid align-items-center">
+          <div class="col-md-6 order-md-2">
+            <img src="{% static 'assets/img/theme/landing-3.png' %}" class="img-fluid">
+          </div>
+          <div class="col-md-6 order-md-1">
+            <div class="pr-md-5">
+              <h1>Web Wallet</h1>
+              <p>
+                If you would like to participate in the DCB ecosystem, you would need a DCB-compatible
+                 wallet. DCB enables you to generate a custodial wallet for you.
+              </p>
+              <a
+                href="/wallets/"
+                class="font-weight-bold text-info mt-5">Explore Web Wallet</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-7">
+      <div class="container">
+        <div class="row row-grid justify-content-center">
+          <div class="col-lg-8 text-center">
+            <h2 class="display-3">
+              Do you love this awesome
+              <span class="text-success">DCB Platform?</span>
+            </h2>
+            <p class="lead">
+              Cause if you do, you should participate now! Hit the button below to
+              navigate to trade DCB professionally and purchase DCB or explore 
+              the ecosystem and develop the next profitable blockchain project!
+            </p>
+            <div class="btn-wrapper">
+              <a
+                href="/deposits/"
+                class="btn btn-success mb-3 mb-sm-0">
+                <span class="btn-inner--text">Deposit</span>
+              </a>            
+              <a
+                href="/pages/ecosystem"
+                class="btn btn-secondary btn-icon mb-3 mb-sm-0">
+                <span class="btn-inner--text">Explore Ecosystem</span>
+              </a>
+            </div>
+            <div class="text-center">
+              <h4 class="display-4 mb-5 mt-5">Expanding & Thriving Ecosystem</h4>
+              <div class="row justify-content-center">
+                <div class="col-md-2 col-3 my-2">
+                    <a href="https:/coinsouq.com" target="_blank" data-toggle="tooltip" data-original-title="Coin Souq - The most advanced crypto exchange in the world">
+                    <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/ps.jpg" class="img-fluid rounded-circle">
+                  </a>
+                </div>
+                <div class="col-md-2 col-3 my-2">
+                    <a href="https:/bifrostchain.com" target="_blank" data-toggle="tooltip" data-original-title="Bifrost Chain Bridge - Multi-chain advanced  and smart bridge">
+                    <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/ps.jpg" class="img-fluid rounded-circle">
+                  </a>
+                </div>
+                <div class="col-md-2 col-3 my-2">
+                  <a href="https://pussyswap.com" target="_blank" data-toggle="tooltip" data-original-title="Pussyswap - Automated Market Maker(AMM) platform">
+                    <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/ps.jpg" class="img-fluid rounded-circle">
+                  </a>
+                </div>
+                <div class="col-md-2 col-3 my-2">
+                  <a href="https://digitalmarket.art" target="_blank" data-toggle="tooltip" data-original-title="Digital Market - Premier NFT marketplace">
+                    <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/ps.jpg" class="img-fluid rounded-circle">
+                  </a>
+                </div>
+                <div class="col-md-2 col-3 my-2">
+                  <a href=" https://chainseer.com" target="_blank" data-toggle="tooltip" data-original-title="Seer - Blockchain explorer, wallet, and data transparency application">
+                    <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/ps.jpg" class="img-fluid rounded-circle">
+                  </a>
+                </div>
+                <div class="col-md-2 col-3 my-2">
+                  <a href=" https://cryptobazaar.xyz" target="_blank" data-toggle="tooltip" data-original-title="Crypto Bazaar - Peer to peer coin and token exchange platform">
+                    <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/ps.jpg" class="img-fluid rounded-circle">
+                  </a>
+                </div>
+              </div>
+              <div class="row justify-content-center">
+                <div class="col-md-2 col-3 my-2">
+                  <a href=" https://crypto.cloud" target="_blank" data-toggle="tooltip" data-original-title="[Coming Soon] Crypto Cloud - Cloud as a service for decentralised and distributed systems">
+                    <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/ps.jpg" class="img-fluid rounded-circle opacity-3">
+                  </a>
+                </div>
+                <div class="col-md-2 col-3 my-2">
+                  <a href=" https://firefoxresearch.com" target="_blank" data-toggle="tooltip" data-original-title="[Coming Soon] Firefox Research - Coin &amp; Token research and rating agency">
+                    <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/ps.jpg" class="img-fluid rounded-circle opacity-3">
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+{% endblock %}
+
+{% block javascript %}
+  <!-- Demo JS - remove this in your project -->
+  <script src="{% static '/assets/js/demo.min.js' %}"></script>
+{% endblock %}  

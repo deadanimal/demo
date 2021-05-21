@@ -35,7 +35,7 @@ class MainView(View):
             'userId': user_id
         }
         
-        return render(request, 'accounts/main.html', context)       
+        return render(request, 'demo/main.html', context)       
 
 
 

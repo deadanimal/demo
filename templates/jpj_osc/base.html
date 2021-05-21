@@ -6,22 +6,23 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
-  <meta name="author" content="Creative Tim">
-  <title>DCB | {% block title %}{% endblock %}</title>
-  <link rel="icon" href="{% static 'assets/img/brand/favicon.png' %}" type="image/png">
+  <meta name="description" content="JPJ OSC System developed by PNSB">
+  <meta name="author" content="Pipeline Network Sdn. Bhd.">
+  <title>JPJ OSC | {% block title %}{% endblock %}</title>
+  <link rel="icon" href="{% static 'assets/img/brand/jpj_osc_favicon.png' %}" type="image/png">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
   <link rel="stylesheet" href="{% static 'assets/vendor/nucleo/css/nucleo.css' %}" type="text/css">
   <link rel="stylesheet" href="{% static 'assets/vendor/@fortawesome/fontawesome-free/css/all.min.css' %}" type="text/css">
   <link rel="stylesheet" href="{% static 'assets/css/argon.css' %}" type="text/css">
+  
 </head>
 
 <body>
 
   <nav id="navbar-main" class="navbar navbar-horizontal navbar-main navbar-expand-lg navbar-dark bg-default">
     <div class="container">
-      <a class="navbar-brand" href="/accounts">
-        <img src="{% static 'assets/img/brand/white.png' %}">
+      <a class="navbar-brand" href="/jpj-osc">
+        <img src="{% static 'assets/img/brand/jpj_osc.png' %}">
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -30,8 +31,8 @@
         <div class="navbar-collapse-header">
           <div class="row">
             <div class="col-6 collapse-brand">
-              <a href="/accounts">
-                <span class="nav-link-inner--text" style="color: #172b4d !important;">DCB Platform</span>
+              <a href="/jpj-osc">
+                <span class="nav-link-inner--text" style="color: #172b4d !important;">System Demo</span>                
               </a>
             </div>
             <div class="col-6 collapse-close">
@@ -42,17 +43,22 @@
             </div>
           </div>
         </div>
-        <!-- <ul class="navbar-nav mr-auto">        
+        <!-- <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a href="/deposits/" class="nav-link">
-              <span class="nav-link-inner--text">Deposit</span>
+            <a href="/pages/chain" class="nav-link">
+              <span class="nav-link-inner--text">Chain</span>
             </a>
-          </li>
+          </li>       
           <li class="nav-item">
-            <a href="/withdrawals/" class="nav-link">
-              <span class="nav-link-inner--text">Withdraw</span>
+            <a href="/pages/developer" class="nav-link">
+              <span class="nav-link-inner--text">Developer</span>
             </a>
-          </li>
+          </li>               
+          <li class="nav-item">
+            <a href="/pages/ecosystem" class="nav-link">
+              <span class="nav-link-inner--text">Ecosystem</span>
+            </a>
+          </li>          
         </ul> -->
         <hr class="d-lg-none" />
         <ul class="navbar-nav align-items-lg-center ml-lg-auto">
@@ -81,37 +87,21 @@
             </a>
           </li> -->
           <!-- <li class="nav-item d-lg-block ml-lg-4">
-            <a href="/chains/" class="btn btn-neutral btn-icon">
+            <a href="/jpj-osc/admin" class="btn btn-danger btn-icon">
               <span class="btn-inner--icon">
-                <i class="fas fa-project-diagram mr-2" style="color:#172b4d;"></i>
-              </span>
-              <span class="nav-link-inner--text" style="color:#172b4d;">Chain</span>
+                <i class="fas fa-chart-line mr-2" ></i>
+              </span>                   
+              <span class="nav-link-inner--text ">Admin Dashboard</span>         
             </a>
           </li> -->
           <li class="nav-item d-lg-block ml-lg-4">
-            <a href="/accounts/logout" class="btn btn-danger btn-icon">
+            <a href="/jpj-osc/user" class="btn btn-success btn-icon">
               <span class="btn-inner--icon">
-                <i class="fas fa-sign-out-alt mr-2"></i>
-              </span>
-              <span class="nav-link-inner--text">Log Out</span>
+                <i class="fas fa-user mr-2" ></i>
+              </span>                   
+              <span class="nav-link-inner--text ">Dashboard</span>         
             </a>
-          </li>                  
-          <!-- <li class="nav-item d-lg-block ml-lg-4">
-            <a href="/deposits/on" class="btn btn-neutral btn-icon">
-              <span class="btn-inner--icon">
-                <i class="fas fa-credit-card mr-2" style="color:#172b4d;"></i>
-              </span>
-              <span class="nav-link-inner--text" style="color:#172b4d;">On-Ramp</span>
-            </a>
-          </li>           -->
-          <!-- <li class="nav-item d-lg-block ml-lg-4">
-            <a href="/wallets/" class="btn btn-neutral btn-icon">
-              <span class="btn-inner--icon">
-                <i class="fas fa-wallet mr-2" style="color:#172b4d;"></i>
-              </span>
-              <span class="nav-link-inner--text" style="color:#172b4d;">Wallet</span>
-            </a>
-          </li>           -->
+          </li>          
         </ul>
       </div>
     </div>
@@ -125,23 +115,17 @@
       <div class="row align-items-center justify-content-xl-between">
         <div class="col-xl-6">
           <div class="copyright text-center text-xl-left text-muted">
-            &copy; 2021 <a href="/" class="font-weight-bold ml-1" style="color:#172b4d;">DCB Platform</a>
+            &copy; 2021 <a href="https://pipeline.com.my" class="font-weight-bold ml-1" style="color:#172b4d;">Pipeline Network Sdn. Bhd.</a>
           </div>
         </div>
         <div class="col-xl-6">
           <ul class="nav nav-footer justify-content-center justify-content-xl-end">
             <li class="nav-item">
-              <a href="/pages/about" class="nav-link">About</a>
+              <a href="/jpj-osc/admin" class="nav-link">JPJ Admin</a>
             </li>
             <li class="nav-item">
-              <a href="/pages/aml" class="nav-link">AML/KYC</a>
-            </li>
-            <li class="nav-item">
-              <a href="/pages/privacy" class="nav-link">Privacy</a>
-            </li>
-            <li class="nav-item">
-              <a href="/pages/terms" class="nav-link">Terms</a>
-            </li>
+              <a href="/jpj-osc/user" class="nav-link">Public User</a>
+            </li>  
           </ul>
         </div>
       </div>
@@ -159,6 +143,7 @@
   <script src="{% static 'assets/js/argon.js' %}"></script>
 
   {% block javascript %}{% endblock %}
+  
 </body>
 
 
