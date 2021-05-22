@@ -70,25 +70,23 @@ def is_user_login_ok(request):
         print(e)
 
 
-def authenticated_user(request):
 
-    if is_user_login_ok(request) is False:
-        login_url = get_login_url(request)
-        print(login_url)
-        return login_url
+def get_user_detail(userId):
+    client_response = client.retrieve_user(userId)
+    if client_response.was_successful():
+        user_ = client_response.success_response
+        return user_
     else:
-        print('auth')
-    # try:
-    #     client = FusionAuthClient(
-    #         FUSION_AUTH_API_KEY, FUSION_AUTH_BASE_URL
-    #     )
-    #     r = client.retrieve_user(request.user.username)
+        print('User detail not found')    
 
-    #     if r.was_successful():
-    #         user = r.success_response            
-    #         return user
-    #     else:
-    #         print(r.error_response)
-    # except Exception as e:
-    #     print("couldn't get user")
-    #     print(e)    
+
+
+def check_user_login(request):
+    
+    if request.session.get('user') != None:
+        user_ = request.session.get('user')
+        return user_
+    else:
+        redirect_url = request.build_absolute_uri(reverse("login"))
+        return redirect(redirect_url)
+    

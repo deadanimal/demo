@@ -1,0 +1,107 @@
+
+{% extends "jpj_osc/user/base.html" %}
+{% load static %}
+
+{% block title %}
+Bayaran
+{% endblock %}
+
+{% block content %}
+<div class="row">
+
+  <div class="col-xs-12 col-md-8">
+
+    <div class="card">
+      <div class="card-header">
+        <h1 class="h1 card-title my--2">Khidmat Bayaran</h1>
+      </div>      
+
+      <div class="card-body">
+        <form action="/jpj-osc/user/bayaran" method="POST">
+          {% csrf_token %} 
+
+          <div class="row">
+
+            <div class="col-xs-12 col-md-6">
+                <div class="form-group">
+                  <label>Jenis Perkhidmatan</label>
+                  <select class="form-control" data-toggle="select" name="serviceType">
+                    <option value="1">Pendaftaran</option>
+                    <option value="2">Pembahruan</option>
+                  </select>   
+                </div>  
+              </div>            
+
+            <div class="col-xs-12 col-md-6">
+              <div class="form-group">
+                <label>Tempoh Aktif Lesen</label>
+                <select class="form-control" data-toggle="select" name="bankAccountType">
+                  <option value="1">1 Tahun</option>
+                  <option value="2">2 Tahun</option>
+                  <option value="3">3 Tahun</option>
+                  <option value="4">4 Tahun</option>
+                  <option value="5">5 Tahun</option>
+                </select>   
+              </div>  
+            </div>              
+
+          </div>
+
+          <button type="submit" class="btn btn-default btn-block">Hantar</button>                            
+        </form>
+      </div>      
+
+    </div> 
+
+  </div>
+
+
+  <div class="col-xs-12 col-md-4">
+    
+    <div class="card">
+      <div class="card-header">
+        <h1 class="h1 card-title my--2">Khidmat JPJ</h1>
+      </div>      
+      <div class="card-body">
+
+        <div class="row">
+          <div class="col-6">
+            <a href="/jpj-osc/user/lesen" style="text-align: center;" class="btn btn-default btn-lg btn-block mr-1">
+              <i class="fas fa-id-badge fa-4x	mb-1" style="display: block;margin-left: auto;margin-right: auto;width:100%;"></i><p class="mb-0">Lesen</p>
+            </a>
+          </div>
+          <div class="col-6">
+            <a href="/jpj-osc/user/bayaran" style="text-align: center;" class="btn btn-default btn-lg btn-block ml-1">
+              <i class="fas fa-cash-register fa-4x	mb-1" style="display: block;margin-left: auto;margin-right: auto;width:100%;"></i><p class="mb-0">Bayaran</p>
+            </a>            
+          </div>
+        </div>  
+        
+        <div class="row mt-3">
+          <div class="col-6">
+            <a href="/jpj-osc/user/semakan" style="text-align: center;" class="btn btn-default btn-lg btn-block mr-1">
+              <i class="fas fa-search fa-4x	mb-1" style="display: block;margin-left: auto;margin-right: auto;width:100%;"></i><p class="mb-0">Semak Data</p>
+            </a>
+          </div>
+          <div class="col-6">
+            <a href="/jpj-osc/user/plat" style="text-align: center;" class="btn btn-default btn-lg btn-block ml-1">
+              <i class="fas fa-car fa-4x	mb-1" style="display: block;margin-left: auto;margin-right: auto;width:100%;"></i><p class="mb-0">Beli Plat</p>
+            </a>            
+          </div>
+        </div>           
+
+      
+        
+        
+      </div>
+
+    </div>     
+  </div>
+
+</div>
+{% endblock %}
+
+{% block javascript %}
+  
+  
+{% endblock %}  
