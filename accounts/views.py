@@ -90,22 +90,3 @@ class LoginCallbackView(View):
 
         redirect_url = request.build_absolute_uri(reverse("accounts"))
         return redirect(redirect_url)  
-
-
-class APIAccountViewSet(viewsets.ModelViewSet):
-    #queryset = Wallet.objects.all()
-    #serializer_class = WalletSerializer
-    filter_backends = (DjangoFilterBackend, SearchFilter, OrderingFilter)
-
-    def get_permissions(self):
-        if self.action == 'list':
-            permission_classes = [AllowAny] # IsAuthenticated
-        else:
-            permission_classes = [AllowAny]
-
-        return [permission() for permission in permission_classes]    
-         
-    def get_queryset(self):
-        pass
-        #queryset = Wallet.objects.all()            
-        #return queryset        
