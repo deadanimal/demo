@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class HsnMainConfig(AppConfig):
+class MbpjElaunConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'hsn_main'
+    name = 'mbpj_elaun'

@@ -7,5 +7,5 @@ urlpatterns = [
     path('', include('accounts.urls')),
 
     path('jpj-osc/', include('jpj_osc.urls')),
-    path('hsn/', include('hsn_main.urls')),
+    path('airsel-inventory/', include('airsel_inventory.urls')),
 ]

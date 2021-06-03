@@ -10,6 +10,7 @@ SETTINGS_PATH = os.path.dirname(os.path.dirname(__file__))
 ALLOWED_HOSTS = [
     '127.0.0.1',
     'localhost',
+    '128.199.164.188',
     
     'demo-2qr7c.ondigitalocean.app',
     'demoapp.com.my',
@@ -30,7 +31,9 @@ INSTALLED_APPS = [
 
     'accounts',
 
-    'jpj_osc'
+    'jpj_osc',
+    'airsel_inventory',
+    'mbpj_elaun'
 
 ]
 
