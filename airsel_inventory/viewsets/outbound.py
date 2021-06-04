@@ -15,103 +15,103 @@ from django_filters.rest_framework import DjangoFilterBackend
 
 from rest_framework import routers, serializers, viewsets
 
-from ..models.outbound import (
-    GrnInterfaceInterface,
-    GrnInterface2Interface,
-    InventoryTransactionInterface,
-    InventoryTransactionFromProjectInterface,
-    InventoryTransactionFromMaintenanceInterface
-)
-from ..serializers.outbound import (
-    GrnInterfaceInterfaceSerializer,
-    GrnInterface2InterfaceSerializer,
-    InventoryTransactionInterfaceSerializer,
-    InventoryTransactionFromProjectInterfaceSerializer,
-    InventoryTransactionFromMaintenanceInterfaceSerializer
-)
+# from ..models.outbound import (
+#     GrnInterfaceInterface,
+#     GrnInterface2Interface,
+#     InventoryTransactionInterface,
+#     InventoryTransactionFromProjectInterface,
+#     InventoryTransactionFromMaintenanceInterface
+# )
+# from ..serializers.outbound import (
+#     GrnInterfaceInterfaceSerializer,
+#     GrnInterface2InterfaceSerializer,
+#     InventoryTransactionInterfaceSerializer,
+#     InventoryTransactionFromProjectInterfaceSerializer,
+#     InventoryTransactionFromMaintenanceInterfaceSerializer
+# )
 
-class APIGrnInterfaceInterfaceViewSet(viewsets.ModelViewSet):
-    queryset = GrnInterfaceInterface.objects.all()
-    serializer_class = GrnInterfaceInterfaceSerializer
-    filter_backends = (DjangoFilterBackend, SearchFilter, OrderingFilter)
+# class APIGrnInterfaceInterfaceViewSet(viewsets.ModelViewSet):
+#     queryset = GrnInterfaceInterface.objects.all()
+#     serializer_class = GrnInterfaceInterfaceSerializer
+#     filter_backends = (DjangoFilterBackend, SearchFilter, OrderingFilter)
 
-    def get_permissions(self):
-        if self.action == 'list':
-            permission_classes = [AllowAny] # IsAuthenticated
-        else:
-            permission_classes = [AllowAny]
+#     def get_permissions(self):
+#         if self.action == 'list':
+#             permission_classes = [AllowAny] # IsAuthenticated
+#         else:
+#             permission_classes = [AllowAny]
 
-        return [permission() for permission in permission_classes]    
+#         return [permission() for permission in permission_classes]    
          
-    def get_queryset(self):
-        queryset = GrnInterfaceInterface.objects.all()            
-        return queryset       
+#     def get_queryset(self):
+#         queryset = GrnInterfaceInterface.objects.all()            
+#         return queryset       
 
 
-class APIGrnInterface2InterfaceViewSet(viewsets.ModelViewSet):
-    queryset = GrnInterface2Interface.objects.all()
-    serializer_class = GrnInterface2InterfaceSerializer
-    filter_backends = (DjangoFilterBackend, SearchFilter, OrderingFilter)
+# class APIGrnInterface2InterfaceViewSet(viewsets.ModelViewSet):
+#     queryset = GrnInterface2Interface.objects.all()
+#     serializer_class = GrnInterface2InterfaceSerializer
+#     filter_backends = (DjangoFilterBackend, SearchFilter, OrderingFilter)
 
-    def get_permissions(self):
-        if self.action == 'list':
-            permission_classes = [AllowAny] # IsAuthenticated
-        else:
-            permission_classes = [AllowAny]
+#     def get_permissions(self):
+#         if self.action == 'list':
+#             permission_classes = [AllowAny] # IsAuthenticated
+#         else:
+#             permission_classes = [AllowAny]
 
-        return [permission() for permission in permission_classes]    
+#         return [permission() for permission in permission_classes]    
          
-    def get_queryset(self):
-        queryset = GrnInterface2Interface.objects.all()            
-        return queryset                 
+#     def get_queryset(self):
+#         queryset = GrnInterface2Interface.objects.all()            
+#         return queryset                 
 
-class APIInventoryTransactionInterfaceViewSet(viewsets.ModelViewSet):
-    queryset = InventoryTransactionInterface.objects.all()
-    serializer_class = InventoryTransactionInterfaceSerializer
-    filter_backends = (DjangoFilterBackend, SearchFilter, OrderingFilter)
+# class APIInventoryTransactionInterfaceViewSet(viewsets.ModelViewSet):
+#     queryset = InventoryTransactionInterface.objects.all()
+#     serializer_class = InventoryTransactionInterfaceSerializer
+#     filter_backends = (DjangoFilterBackend, SearchFilter, OrderingFilter)
 
-    def get_permissions(self):
-        if self.action == 'list':
-            permission_classes = [AllowAny] # IsAuthenticated
-        else:
-            permission_classes = [AllowAny]
+#     def get_permissions(self):
+#         if self.action == 'list':
+#             permission_classes = [AllowAny] # IsAuthenticated
+#         else:
+#             permission_classes = [AllowAny]
 
-        return [permission() for permission in permission_classes]    
+#         return [permission() for permission in permission_classes]    
          
-    def get_queryset(self):
-        queryset = InventoryTransactionInterface.objects.all()            
-        return queryset       
+#     def get_queryset(self):
+#         queryset = InventoryTransactionInterface.objects.all()            
+#         return queryset       
 
-class APIInventoryTransactionFromProjectInterfaceViewSet(viewsets.ModelViewSet):
-    queryset = InventoryTransactionFromProjectInterface.objects.all()
-    serializer_class = InventoryTransactionFromProjectInterfaceSerializer
-    filter_backends = (DjangoFilterBackend, SearchFilter, OrderingFilter)
+# class APIInventoryTransactionFromProjectInterfaceViewSet(viewsets.ModelViewSet):
+#     queryset = InventoryTransactionFromProjectInterface.objects.all()
+#     serializer_class = InventoryTransactionFromProjectInterfaceSerializer
+#     filter_backends = (DjangoFilterBackend, SearchFilter, OrderingFilter)
 
-    def get_permissions(self):
-        if self.action == 'list':
-            permission_classes = [AllowAny] # IsAuthenticated
-        else:
-            permission_classes = [AllowAny]
+#     def get_permissions(self):
+#         if self.action == 'list':
+#             permission_classes = [AllowAny] # IsAuthenticated
+#         else:
+#             permission_classes = [AllowAny]
 
-        return [permission() for permission in permission_classes]    
+#         return [permission() for permission in permission_classes]    
          
-    def get_queryset(self):
-        queryset = InventoryTransactionFromProjectInterface.objects.all()            
-        return queryset                 
+#     def get_queryset(self):
+#         queryset = InventoryTransactionFromProjectInterface.objects.all()            
+#         return queryset                 
 
-class APIInventoryTransactionFromMaintenanceInterfaceViewSet(viewsets.ModelViewSet):
-    queryset = InventoryTransactionFromMaintenanceInterface.objects.all()
-    serializer_class = InventoryTransactionFromMaintenanceInterfaceSerializer
-    filter_backends = (DjangoFilterBackend, SearchFilter, OrderingFilter)
+# class APIInventoryTransactionFromMaintenanceInterfaceViewSet(viewsets.ModelViewSet):
+#     queryset = InventoryTransactionFromMaintenanceInterface.objects.all()
+#     serializer_class = InventoryTransactionFromMaintenanceInterfaceSerializer
+#     filter_backends = (DjangoFilterBackend, SearchFilter, OrderingFilter)
 
-    def get_permissions(self):
-        if self.action == 'list':
-            permission_classes = [AllowAny] # IsAuthenticated
-        else:
-            permission_classes = [AllowAny]
+#     def get_permissions(self):
+#         if self.action == 'list':
+#             permission_classes = [AllowAny] # IsAuthenticated
+#         else:
+#             permission_classes = [AllowAny]
 
-        return [permission() for permission in permission_classes]    
+#         return [permission() for permission in permission_classes]    
          
-    def get_queryset(self):
-        queryset = InventoryTransactionFromMaintenanceInterface.objects.all()            
-        return queryset                     
+#     def get_queryset(self):
+#         queryset = InventoryTransactionFromMaintenanceInterface.objects.all()            
+#         return queryset                     
