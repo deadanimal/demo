@@ -217,14 +217,14 @@ a
 {
     text-decoration: none;
 
-    color: #5e72e4;
+    color: #212529;
     background-color: transparent;
 }
 a:hover
 {
     text-decoration: none; 
 
-    color: #233dd2;
+    color: #172b4d;
 }
 
 a:not([href])
@@ -5723,7 +5723,7 @@ input[type='button'].btn-block
 .nav-pills .show > .nav-link
 {
     color: #fff;
-    background-color: #5e72e4;
+    background-color: var(--default);
 }
 
 .nav-fill .nav-item
@@ -23378,7 +23378,7 @@ textarea[resize='horizontal']
 
     transition: all .15s ease; 
 
-    color: #5e72e4;
+    color: var(--default);
     background-color: #fff;
     box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08);
 }
@@ -23391,7 +23391,7 @@ textarea[resize='horizontal']
 .nav-pills .show > .nav-link
 {
     color: #fff;
-    background-color: #5e72e4;
+    background-color: var(--default);
 }
 
 @media (max-width: 575.98px)
