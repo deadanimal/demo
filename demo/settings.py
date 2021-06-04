@@ -33,7 +33,8 @@ INSTALLED_APPS = [
 
     'jpj_osc',
     'airsel_inventory',
-    'mbpj_elaun'
+    'mbpj_elaun',
+    'mbpj_rollcall'
 
 ]
 
