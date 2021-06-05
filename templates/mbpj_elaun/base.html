@@ -21,6 +21,7 @@
   <link rel="stylesheet" href="{% static 'assets/vendor/datatables.net-bs4/css/dataTables.bootstrap4.min.css' %}">
   <link rel="stylesheet" href="{% static 'assets/vendor/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css' %}">
   <link rel="stylesheet" href="{% static 'assets/vendor/datatables.net-select-bs4/css/select.bootstrap4.min.css' %}"> 
+  
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
 
 
@@ -60,48 +61,62 @@ $(document).on('click', '.dropdown-menu', function (e) {
   </button>
   <div class="collapse navbar-collapse" id="main_nav">
 
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <small class="nav-link text-white">Kad Pengenalan: {{ user.nric }} </small>
+      </li>
+      <li class="nav-item">
+        <small class="nav-link text-white">No. Pekerja: {{ user.noPekerja }}</small>
+      </li>        
+    </ul>    
 <ul class="navbar-nav ml-auto">
 	<li class="nav-item dropdown has-megamenu">
 		<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">Menu</a>
 	    <div class="dropdown-menu megamenu" role="menu">
    
                     <div class="row mx-6">
-                        <div class="col-md-3">
+                        <div class="col-md-6">
                             <div class="col-megamenu">
                             	<h2 class="title">Elaun Lebih Masa</h2>
 	                            <ul class="list-unstyled">                                  
+                                    {% if userGroup == '1' or userGroup == '2' %}    
                                     <li><a href="/mbpj-elaun/mohon">Permohonan Elaun</a></li>                            
-                                    <li><a href="/mbpj-elaun/tuntut">Tuntut Elaun</a></li>	
-                                    {% if userGroup == '2' or userGroup == '3' or userGroup == '4' %}                                                           
-                                    <li><a href="/mbpj-elaun/sah">Mengesah Elaun</a></li>	                            
-                                    <li><a href="/mbpj-elaun/lulus">Melulus Elaun</a></li>	                                         
-                                    <li><a href="/mbpj-elaun/kes-istimewa">Kes Istimewa Elaun</a></li>	                            
+                                    <li><a href="/mbpj-elaun/tuntut">Tuntutan Elaun</a></li>	
+                                    {% endif %}
+                                    {% if userGroup == '2' or userGroup == '3' %}                                                           
+                                    <li><a href="/mbpj-elaun/sah">Mengesahkan Elaun</a></li>	           
+                                    {% endif %}
+                                    {% if userGroup == '3' or userGroup == '4' or userGroup == '5' %}                     
+                                    <li><a href="/mbpj-elaun/lulus">Meluluskan Elaun</a></li>	                            
+                                    {% endif %}
+                                    {% if userGroup == '2' or userGroup == '3' or userGroup == '4' %}                                  
+                                    <li><a href="/mbpj-elaun/kes-istimewa">Permohanan Elaun (Kes Istimewa)</a></li>	                            
                                     {% endif %}
 	                            </ul>
                             </div>  
                         </div>        
                         
-                        {% if userGroup == '6' or userGroup == '7' or userGroup == '8' or userGroup == '9' %}
+                        {% if userGroup == '10' %}                        
                         <div class="col-md-3">
                         	<div class="col-megamenu">
                             <h2 class="title">Sistem</h2>
                                 <ul class="list-unstyled">
                                     <li><a href="/mbpj-elaun/pengurusan">Pengurusan Pengguna</a>
-                                    <li><a href="/mbpj-elaun/maintenance">Penyelengaraan</a>
-                                    <li><a href="/mbpj-elaun/pendaftaran">Pendaftaran</a>
+                                    <li><a href="/mbpj-elaun/pendaftaran">Pendaftaran Pengguna</a>                                      
+                                    <li><a href="/mbpj-elaun/maintenance">Penyelengaraan Sistem</a>
                                 </ul>
                             </div>  
                         </div>
                         {% endif %}
 
-                        {% if userGroup == '10' %}
+                        {% if userGroup == '6' or userGroup == '7' or userGroup == '8' or userGroup == '9' %}
                         <div class="col-md-3">
                         	<div class="col-megamenu">
                             <h2 class="title">Perbendaharaan</h2>
                                 <ul class="list-unstyled">                                  
-                                    <li><a href="/mbpj-elaun/semak">Semakan</a>
-                                    <li><a href="/mbpj-elaun/periksa">Periksa</a>
-                                    <li><a href="/mbpj-elaun/pindaan">Pindaan</a>
+                                    <li><a href="/mbpj-elaun/semakan">Semakan Elaun</a>
+                                    <li><a href="/mbpj-elaun/periksa">Periksa Elaun</a>
+                                    <li><a href="/mbpj-elaun/pindaan">Pindaan Elaun</a>
                                 </ul>
 
                             </div>  
@@ -114,14 +129,16 @@ $(document).on('click', '.dropdown-menu', function (e) {
                                 <ul class="list-unstyled">
                                     <li><a href="/mbpj-elaun/bantuan">Bantuan</a></li>
                                     <li><a href="/mbpj-elaun/laporan">Laporan</a></li>
-                                    <li><a href="/mbpj-elaun/profil">Profil</a></li>                                                                    
-                                    <li><a href="/mbpj-elaun/logout">Log out</a></li>                                                                    
+                                    <li><a href="/mbpj-elaun/profil">Profil</a></li>                                                                                                                                       
                                 </ul>                              
                             </div>  
                         </div>                          
                     </div>                       
         </div> 
 	</li>
+  <li class="nav-item">
+    <a class="nav-link text-danger" href="/mbpj-elaun/logout">Keluar</a></li> 
+  </li>    
 </ul>
 
   </div>

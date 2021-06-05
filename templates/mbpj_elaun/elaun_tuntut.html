@@ -23,8 +23,88 @@ Tuntutan Elaun
           </div>      
   
           <div class="card-body">
+            <div class="col">
+                    <!-- <h4 class="heading-medium text-muted mb-4">Maklumat Peribadi</h4> -->
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="col-form-label col-form-label-sm font-weight-bold">No Pekerja</label>
+                                <input type="text" name="noPekerja" id="noPekerja" class="form-control form-control-sm text-default" value="{{user.noPekerja}}" disabled="">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="row"> 
+                       <div class="col-md-8">
+                            <div class="form-group">
+                                <label class="col-form-label col-form-label-sm font-weight-bold">Nama</label>
+                                <input type="text" name="name" id="name" class="form-control form-control-sm text-default" value="{{user.nama}}" disabled="">
 
-          </div>      
+                                
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <label class="col-form-label col-form-label-sm font-weight-bold">Jawatan</label>
+                                <input type="text" name="jawatan" id="jawatan" class="form-control form-control-sm text-default" value="{{user.jawatan}}" disabled="">
+
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row"> 
+                       <div class="col">
+                            <div class="form-group">
+                                <label class="col-form-label col-form-label-sm font-weight-bold">No. KP Baru</label>
+                                <input type="text" name="nric" id="nric" class="form-control form-control-sm text-default" value="{{user.nric}}" disabled="">
+
+                                
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <label class="col-form-label col-form-label-sm font-weight-bold">Bahagian</label>
+                                <input type="text" name="bahagian" id="bahagian" class="form-control form-control-sm text-default" value="{{user.bahagian}}" disabled="">
+
+                                
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <label class="col-form-label col-form-label-sm font-weight-bold">Jabatan</label>
+                                <input type="text" name="jabatan" id="jabatan" class="form-control form-control-sm text-default" value="{{user.jabatan}}" disabled="">
+
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">  
+                       <div class="col-lg-4">
+                            <div class="form-group">
+                                <label class="col-form-label col-form-label-sm font-weight-bold">Gaji Matriks</label>
+                                <input type="text" name="gajiMatriks" id="gajiMatriks" class="form-control form-control-sm text-default" value="{{user.gaji}}" disabled="">
+
+                                
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label class="col-form-label col-form-label-sm font-weight-bold">Gred</label>
+                                <input type="text" name="gred" id="gred" class="form-control form-control-sm text-default" value="{{user.gred}}" disabled="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- <div class="text-right">
+                      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#exampleModal">Mohon Baru</button>
+                    </div> -->
+
+
+                </div>
+          </div>  
   
         </div> 
       </div>
@@ -37,9 +117,21 @@ Tuntutan Elaun
             <h3 class="h3 card-title my--2">Senarai Permohonan</h3>
           </div>      
   
-          <div class="card-body">
+          <div class="card-body px-0">
+            <div class="table-responsive">
+                <div id="individuDT_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer"><div class="dataTables_length" id="individuDT_length"><label>Tunjuk <select name="individuDT_length" aria-controls="individuDT" class="custom-select custom-select-sm form-control form-control-sm"><option value="5">5</option><option value="10">10</option><option value="25">25</option><option value="50">50</option></select> rekod</label></div><table class="table dataTable no-footer" id="individuDT" style="width: 100%;" role="grid" aria-describedby="individuDT_info">
+                    <thead class="thead-light">
+                    <tr role="row"><th class="sorting" tabindex="0" aria-controls="individuDT" rowspan="1" colspan="1" style="width: 43px;" aria-label="No: activate to sort column ascending">No</th><th class="sorting_asc" tabindex="0" aria-controls="individuDT" rowspan="1" colspan="1" style="width: 196px;" aria-sort="ascending" aria-label="Tarikh Permohonan: activate to sort column descending">Tarikh Permohonan</th><th class="sorting" tabindex="0" aria-controls="individuDT" rowspan="1" colspan="1" style="width: 77px;" aria-label="Status: activate to sort column ascending">Status</th><th class="sorting" tabindex="0" aria-controls="individuDT" rowspan="1" colspan="1" style="width: 91px;" aria-label="Progres: activate to sort column ascending">Progres</th><th class="sorting" tabindex="0" aria-controls="individuDT" rowspan="1" colspan="1" style="width: 113px;" aria-label="Masa Mula: activate to sort column ascending">Masa Mula</th><th class="sorting" tabindex="0" aria-controls="individuDT" rowspan="1" colspan="1" style="width: 116px;" aria-label="Masa Akhir: activate to sort column ascending">Masa Akhir</th><th class="sorting" tabindex="0" aria-controls="individuDT" rowspan="1" colspan="1" style="width: 64px;" aria-label="Masa: activate to sort column ascending">Masa</th><th class="sorting" tabindex="0" aria-controls="individuDT" rowspan="1" colspan="1" style="width: 81px;" aria-label="Tujuan: activate to sort column ascending">Tujuan</th><th class="sorting" tabindex="0" aria-controls="individuDT" rowspan="1" colspan="1" style="width: 103px;" aria-label="Tindakan: activate to sort column ascending">Tindakan</th></tr>
+                    </thead>
+                    <tbody>
+                        
+                        
+                    <tr class="odd"><td valign="top" colspan="9" class="dataTables_empty">Tiada rekod</td></tr></tbody>
+                </table><div class="dataTables_info" id="individuDT_info" role="status" aria-live="polite">0 ke 0 daripada 0 rekod</div><div class="dataTables_paginate paging_simple_numbers" id="individuDT_paginate"><ul class="pagination"><li class="paginate_button page-item previous disabled" id="individuDT_previous"><a href="#" aria-controls="individuDT" data-dt-idx="0" tabindex="0" class="page-link">&lt;</a></li><li class="paginate_button page-item next disabled" id="individuDT_next"><a href="#" aria-controls="individuDT" data-dt-idx="1" tabindex="0" class="page-link">&gt;</a></li></ul></div></div>
 
-          </div>      
+            </div>
+            
+        </div>    
   
         </div> 
       </div>

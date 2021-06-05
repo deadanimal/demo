@@ -1,0 +1,100 @@
+[{
+    "noPekerja": "1",
+    "nric": "1",
+    "nama": "User 1",
+    "jawatan": "Jawatan",
+    "bahagian": "Bahagian",
+    "jabatan": "Jabatan",
+    "gaji": "1000.00",
+    "gred": "A1"
+},
+{
+    "noPekerja": "2",
+    "nric": "2",
+    "nama": "User 2",
+    "jawatan": "Jawatan",
+    "bahagian": "Bahagian",
+    "jabatan": "Jabatan",
+    "gaji": "2000.00",
+    "gred": "A2"
+},
+{
+    "noPekerja": "3",
+    "nric": "3",
+    "nama": "User 3",
+    "jawatan": "Jawatan",
+    "bahagian": "Bahagian",
+    "jabatan": "Jabatan",
+    "gaji": "3000.00",
+    "gred": "A3"
+},
+{
+    "noPekerja": "4",
+    "nric": "4",
+    "nama": "User 4",
+    "jawatan": "Jawatan",
+    "bahagian": "Bahagian",
+    "jabatan": "Jabatan",
+    "gaji": "4000.00",
+    "gred": "A4"
+},
+{
+    "noPekerja": "5",
+    "nric": "5",
+    "nama": "User 5",
+    "jawatan": "Jawatan",
+    "bahagian": "Bahagian",
+    "jabatan": "Jabatan",
+    "gaji": "5000.00",
+    "gred": "A5"
+},
+{
+    "noPekerja": "6",
+    "nric": "6",
+    "nama": "User 6",
+    "jawatan": "Jawatan",
+    "bahagian": "Bahagian",
+    "jabatan": "Jabatan",
+    "gaji": "6000.00",
+    "gred": "A6"
+},
+{
+    "noPekerja": "7",
+    "nric": "7",
+    "nama": "User 7",
+    "jawatan": "Jawatan",
+    "bahagian": "Bahagian",
+    "jabatan": "Jabatan",
+    "gaji": "7000.00",
+    "gred": "A7"
+},
+{
+    "noPekerja": "8",
+    "nric": "8",
+    "nama": "User 8",
+    "jawatan": "Jawatan",
+    "bahagian": "Bahagian",
+    "jabatan": "Jabatan",
+    "gaji": "8000.00",
+    "gred": "A8"
+},
+{
+    "noPekerja": "9",
+    "nric": "9",
+    "nama": "User 9",
+    "jawatan": "Jawatan",
+    "bahagian": "Bahagian",
+    "jabatan": "Jabatan",
+    "gaji": "9000.00",
+    "gred": "A9"
+},
+{
+    "noPekerja": "10",
+    "nric": "10",
+    "nama": "User 10",
+    "jawatan": "Jawatan",
+    "bahagian": "Bahagian",
+    "jabatan": "Jabatan",
+    "gaji": "10000.00",
+    "gred": "A10"
+}]
