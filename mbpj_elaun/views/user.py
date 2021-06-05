@@ -71,3 +71,178 @@ class UserLogoutView(View):
         return redirect(reverse('mbpj_elaun_login'))         
         
 
+class UserMohonView(View):
+
+    def get(self, request):
+        context = {}
+        if request.session.get('nric') == None:
+            return redirect(reverse('mbpj_elaun_login'))
+
+        context['nric'] = request.session['nric']
+        context['userGroup'] = request.session['userGroup']            
+        
+        return render(request, 'mbpj_elaun/elaun_mohon.html', context)     
+
+
+class UserLulusView(View):
+
+    def get(self, request):
+        context = {}
+        if request.session.get('nric') == None:
+            return redirect(reverse('mbpj_elaun_login'))
+
+        context['nric'] = request.session['nric']
+        context['userGroup'] = request.session['userGroup']            
+        
+        return render(request, 'mbpj_elaun/elaun_lulus.html', context)        
+
+
+class UserSahView(View):
+
+    def get(self, request):
+        context = {}
+        if request.session.get('nric') == None:
+            return redirect(reverse('mbpj_elaun_login'))
+
+        context['nric'] = request.session['nric']
+        context['userGroup'] = request.session['userGroup']            
+        
+        return render(request, 'mbpj_elaun/elaun_sah.html', context)         
+
+class UserTuntutView(View):
+
+    def get(self, request):
+        context = {}
+        if request.session.get('nric') == None:
+            return redirect(reverse('mbpj_elaun_login'))
+
+        context['nric'] = request.session['nric']
+        context['userGroup'] = request.session['userGroup']            
+        
+        return render(request, 'mbpj_elaun/elaun_tuntut.html', context)                 
+
+class UserKesIstimewaView(View):
+
+    def get(self, request):
+        context = {}
+        if request.session.get('nric') == None:
+            return redirect(reverse('mbpj_elaun_login'))
+
+        context['nric'] = request.session['nric']
+        context['userGroup'] = request.session['userGroup']            
+        
+        return render(request, 'mbpj_elaun/elaun_kes_istimewa.html', context)                         
+
+class UserPeriksaView(View):
+
+    def get(self, request):
+        context = {}
+        if request.session.get('nric') == None:
+            return redirect(reverse('mbpj_elaun_login'))
+
+        context['nric'] = request.session['nric']
+        context['userGroup'] = request.session['userGroup']            
+        
+        return render(request, 'mbpj_elaun/finance_periksa.html', context)          
+
+
+class UserPindaanView(View):
+
+    def get(self, request):
+        context = {}
+        if request.session.get('nric') == None:
+            return redirect(reverse('mbpj_elaun_login'))
+
+        context['nric'] = request.session['nric']
+        context['userGroup'] = request.session['userGroup']            
+        
+        return render(request, 'mbpj_elaun/finance_pindaan.html', context)                                         
+
+
+class UserSemakanView(View):
+
+    def get(self, request):
+        context = {}
+        if request.session.get('nric') == None:
+            return redirect(reverse('mbpj_elaun_login'))
+
+        context['nric'] = request.session['nric']
+        context['userGroup'] = request.session['userGroup']            
+        
+        return render(request, 'mbpj_elaun/finance_semakan.html', context)                                                 
+
+class UserPengurusanView(View):
+
+    def get(self, request):
+        context = {}
+        if request.session.get('nric') == None:
+            return redirect(reverse('mbpj_elaun_login'))
+
+        context['nric'] = request.session['nric']
+        context['userGroup'] = request.session['userGroup']            
+        
+        return render(request, 'mbpj_elaun/sistem_pengurusan.html', context)                                                         
+
+
+class UserPendaftaranView(View):
+
+    def get(self, request):
+        context = {}
+        if request.session.get('nric') == None:
+            return redirect(reverse('mbpj_elaun_login'))
+
+        context['nric'] = request.session['nric']
+        context['userGroup'] = request.session['userGroup']            
+        
+        return render(request, 'mbpj_elaun/sistem_pendaftaran.html', context)        
+
+class UserMaintenanceView(View):
+
+    def get(self, request):
+        context = {}
+        if request.session.get('nric') == None:
+            return redirect(reverse('mbpj_elaun_login'))
+
+        context['nric'] = request.session['nric']
+        context['userGroup'] = request.session['userGroup']            
+        
+        return render(request, 'mbpj_elaun/sistem_maintenance.html', context)        
+
+
+class UserBantuanView(View):
+
+    def get(self, request):
+        context = {}
+        if request.session.get('nric') == None:
+            return redirect(reverse('mbpj_elaun_login'))
+
+        context['nric'] = request.session['nric']
+        context['userGroup'] = request.session['userGroup']            
+        
+        return render(request, 'mbpj_elaun/bantuan.html', context)                
+
+
+class UserLaporanView(View):
+
+    def get(self, request):
+        context = {}
+        if request.session.get('nric') == None:
+            return redirect(reverse('mbpj_elaun_login'))
+
+        context['nric'] = request.session['nric']
+        context['userGroup'] = request.session['userGroup']            
+        
+        return render(request, 'mbpj_elaun/laporan.html', context)              
+
+
+class UserProfilView(View):
+
+    def get(self, request):
+        context = {}
+        if request.session.get('nric') == None:
+            return redirect(reverse('mbpj_elaun_login'))
+
+        context['nric'] = request.session['nric']
+        context['userGroup'] = request.session['userGroup']            
+        
+        return render(request, 'mbpj_elaun/profil.html', context)                                

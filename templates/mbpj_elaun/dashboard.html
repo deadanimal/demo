@@ -9,95 +9,102 @@ Dashboard
 {% block content %}
 <div class="row">
 
-  <div class="col-xs-12 col-md-8">
+  <div class="col-md-12">
 
-    <h1>Dashboard</h1>
+    <div class="row px=6">
+      <h1>Dashboard</h1>
+    </div>
 
-    <!-- <div class="card">
-      <div class="card-header">
-        <h1 class="h1 card-title my--2">Khidmat Bayaran</h1>
-      </div>      
-
-      <div class="card-body">
-        <form action="/jpj-osc/user/bayaran" method="POST">
-          {% csrf_token %} 
-
-          <div class="row">
-
-            <div class="col-xs-12 col-md-6">
-                <div class="form-group">
-                  <label>Jenis Perkhidmatan</label>
-                  <select class="form-control" data-toggle="select" name="serviceType">
-                    <option value="1">Pendaftaran</option>
-                    <option value="2">Pembahruan</option>
-                  </select>   
-                </div>  
-              </div>            
-
-            <div class="col-xs-12 col-md-6">
-              <div class="form-group">
-                <label>Tempoh Aktif Lesen</label>
-                <select class="form-control" data-toggle="select" name="bankAccountType">
-                  <option value="1">1 Tahun</option>
-                  <option value="2">2 Tahun</option>
-                  <option value="3">3 Tahun</option>
-                  <option value="4">4 Tahun</option>
-                  <option value="5">5 Tahun</option>
-                </select>   
-              </div>  
-            </div>              
-
+    <div class="row">
+      <div class="col-md-3">
+          <div class="card card-stats">
+              <!-- Card body -->
+              <div class="card-body">
+                  <div class="row">
+                      <div class="col">
+                          <h5 class="card-title text-uppercase text-muted mb-0">Jumlah Permohonan Lebih Masa</h5>
+                          <span class="h2 font-weight-bold mb-0">0</span>
+                      </div>
+                  <div class="col-auto">
+                      <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
+                          <i class="ni ni-active-40"></i>
+                      </div> 
+                  </div>
+              </div>
           </div>
-
-          <button type="submit" class="btn btn-default btn-block">Hantar</button>                            
-        </form>
-      </div>      
-
-    </div>  -->
-
-  </div>
-
-
-  <div class="col-xs-12 col-md-4">
-    
-    <!-- <div class="card">
-      <div class="card-header">
-        <h1 class="h1 card-title my--2">Khidmat JPJ</h1>
-      </div>      
-      <div class="card-body">
-
-        <div class="row">
-          <div class="col-6">
-            <a href="/jpj-osc/user/lesen" style="text-align: center;" class="btn btn-default btn-lg btn-block mr-1">
-              <i class="fas fa-id-badge fa-4x	mb-1" style="display: block;margin-left: auto;margin-right: auto;width:100%;"></i><p class="mb-0">Lesen</p>
-            </a>
-          </div>
-          <div class="col-6">
-            <a href="/jpj-osc/user/bayaran" style="text-align: center;" class="btn btn-default btn-lg btn-block ml-1">
-              <i class="fas fa-cash-register fa-4x	mb-1" style="display: block;margin-left: auto;margin-right: auto;width:100%;"></i><p class="mb-0">Bayaran</p>
-            </a>            
-          </div>
-        </div>  
-        
-        <div class="row mt-3">
-          <div class="col-6">
-            <a href="/jpj-osc/user/semakan" style="text-align: center;" class="btn btn-default btn-lg btn-block mr-1">
-              <i class="fas fa-search fa-4x	mb-1" style="display: block;margin-left: auto;margin-right: auto;width:100%;"></i><p class="mb-0">Semak Data</p>
-            </a>
-          </div>
-          <div class="col-6">
-            <a href="/jpj-osc/user/plat" style="text-align: center;" class="btn btn-default btn-lg btn-block ml-1">
-              <i class="fas fa-car fa-4x	mb-1" style="display: block;margin-left: auto;margin-right: auto;width:100%;"></i><p class="mb-0">Beli Plat</p>
-            </a>            
-          </div>
-        </div>           
-
-      
-        
-        
       </div>
+      </div>
+      <div class="col-md-3">
+      <div class="card card-stats">
+          <!-- Card body -->
+          <div class="card-body">
+              <div class="row">
+                  <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0">Jumlah Permohonan Diluluskan</h5>
+                      <span class="h2 font-weight-bold mb-0">0</span>
+                  </div>
+                  <div class="col-auto">
+                      <div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
+                          <i class="ni ni-chart-pie-35"></i>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      </div>
+      <div class="col-md-3">
+      <div class="card card-stats">
+          <!-- Card body -->
+          <div class="card-body">
+              <div class="row">
+                  <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0">Jumlah Permohonan Ditolak</h5>
+                      <span class="h2 font-weight-bold mb-0">0</span>
+                  </div>
+                  <div class="col-auto">
+                      <div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
+                          <i class="ni ni-money-coins"></i>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      </div>
+      <div class="col-md-3">
+      <div class="card card-stats">
+          <!-- Card body -->
+              <div class="card-body">
+                  <div class="row">
+                      <div class="col">
+                          <h5 class="card-title text-uppercase text-muted mb-0">Jumlah Permohonan Tahun Semasa</h5>
+                          <span class="h2 font-weight-bold mb-0">0</span>
+                      </div>
+                      <div class="col-auto">
+                          <div class="icon icon-shape bg-gradient-info text-white rounded-circle shadow">
+                              <i class="ni ni-chart-bar-32"></i>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>   
 
-    </div>      -->
+    <div class="row">
+      <div class="col-md-12 px-6">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="h3 card-title my--2">Senarai Permohonan</h3>
+          </div>      
+  
+          <div class="card-body">
+
+          </div>      
+  
+        </div> 
+      </div>
+    </div>   
+
   </div>
 
 </div>
@@ -107,3 +114,5 @@ Dashboard
   
   
 {% endblock %}  
+
+ 

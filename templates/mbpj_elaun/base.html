@@ -9,7 +9,7 @@
   <meta name="description" content="MBPJ Elaun System developed by PNSB">
   <meta name="author" content="Pipeline Network Sdn. Bhd.">
   <title>MBPJ Elaun | {% block title %}{% endblock %}</title>
-  <link rel="icon" href="{% static 'assets/img/brand/jpj_osc_favicon.png' %}" type="image/png">
+  <link rel="shortcut icon" href="http://www.mbpj.gov.my/sites/default/files/logo-mbpj-footer.png" type="image/png" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
   <link rel="stylesheet" href="{% static 'assets/vendor/nucleo/css/nucleo.css' %}" type="text/css">
   <link rel="stylesheet" href="{% static 'assets/vendor/@fortawesome/fontawesome-free/css/all.min.css' %}" type="text/css">
@@ -68,13 +68,15 @@ $(document).on('click', '.dropdown-menu', function (e) {
                     <div class="row mx-6">
                         <div class="col-md-3">
                             <div class="col-megamenu">
-                            	<h2 class="title">Elaun</h2>
+                            	<h2 class="title">Elaun Lebih Masa</h2>
 	                            <ul class="list-unstyled">                                  
-                                    <li><a href="/mbpj-elaun/mohon">Mohon</a></li>
-                                    <li><a href="/mbpj-elaun/sah">Sah</a></li>	                            
-                                    <li><a href="/mbpj-elaun/lulus">Lulus</a></li>	                            
-                                    <li><a href="/mbpj-elaun/tuntut">Tuntut</a></li>	                            
-                                    <li><a href="/mbpj-elaun/kesistimewa">Kes Istimewa</a></li>	                            
+                                    <li><a href="/mbpj-elaun/mohon">Permohonan Elaun</a></li>                            
+                                    <li><a href="/mbpj-elaun/tuntut">Tuntut Elaun</a></li>	
+                                    {% if userGroup == '2' or userGroup == '3' or userGroup == '4' %}                                                           
+                                    <li><a href="/mbpj-elaun/sah">Mengesah Elaun</a></li>	                            
+                                    <li><a href="/mbpj-elaun/lulus">Melulus Elaun</a></li>	                                         
+                                    <li><a href="/mbpj-elaun/kes-istimewa">Kes Istimewa Elaun</a></li>	                            
+                                    {% endif %}
 	                            </ul>
                             </div>  
                         </div>        
@@ -98,7 +100,7 @@ $(document).on('click', '.dropdown-menu', function (e) {
                             <h2 class="title">Perbendaharaan</h2>
                                 <ul class="list-unstyled">                                  
                                     <li><a href="/mbpj-elaun/semak">Semakan</a>
-                                    <li><a href="/mbpj-elaun/pemeriksaan">Pemeriksaan</a>
+                                    <li><a href="/mbpj-elaun/periksa">Periksa</a>
                                     <li><a href="/mbpj-elaun/pindaan">Pindaan</a>
                                 </ul>
 
