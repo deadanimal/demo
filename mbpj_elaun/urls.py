@@ -20,7 +20,6 @@ urlpatterns = [
     path('lulus', UserLulusView.as_view(), name='mbpj_elaun_lulus'),
     path('sah', UserSahView.as_view(), name='mbpj_elaun_sah'),
     path('tuntut', UserTuntutView.as_view(), name='mbpj_elaun_tuntut'),
-    path('kes-istimewa', UserKesIstimewaView.as_view(), name='mbpj_elaun_kes_istimewa'),
 
     # Finance
     path('periksa', UserPeriksaView.as_view(), name='mbpj_elaun_finance_periksa'),
@@ -34,7 +33,7 @@ urlpatterns = [
 
     # API
     path('api/token/', ApiTokenView.as_view(), name='mbpj_elaun_api_token'), # GET with Authorisation will get new token POST with username/password
-    path('api/elaun/', ApiTokenView.as_view(), name='mbpj_elaun_ll'),
-    path('api/finance/', ApiTokenView.as_view(), name='mbpj_elaun_ll'),
-    path('api/sistem/', ApiTokenView.as_view(), name='mbpj_elaun_ll'),
+    # path('api/elaun/', ApiTokenView.as_view(), name='mbpj_elaun_ll'),
+    # path('api/finance/', ApiTokenView.as_view(), name='mbpj_elaun_ll'),
+    # path('api/sistem/', ApiTokenView.as_view(), name='mbpj_elaun_ll'),
 ]

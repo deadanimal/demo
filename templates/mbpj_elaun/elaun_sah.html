@@ -13,6 +13,7 @@ Sah Elaun
 
       <h1>Pengesahan Elaun</h1>
 
+    {% if not elauns %}
     <div class="row">
       <div class="col-md-12">
         <div class="card">
@@ -27,14 +28,16 @@ Sah Elaun
   
         </div> 
       </div>
-    </div>         
+    </div>    
+    {% endif %}
+    
 
-
+    {% if elauns %}
     <div class="row">
       <div class="col-md-12">
         <div class="card">
           <div class="card-header">
-            <h3 class="h3 card-title my--2">Senarai Permohonan Memerlukan Pengesahan</h3>
+            <h3 class="h3 card-title my--2">Senarai Permohonan</h3>
           </div>      
   
           <div class="card-body px-0">
@@ -45,10 +48,10 @@ Sah Elaun
             <tr>
                 <!-- <th>No</th> -->
                 <th>Tarikh Permohonan</th>
+                <th>Pemohon</th>
                 <th>Status</th>
                 <th>Tarikh & Masa Mula</th>
                 <th>Tarikh & Masa Akhir</th>
-                <th>Masa</th>
                 <th>Tujuan</th>
             </tr>
         </thead>
@@ -57,7 +60,11 @@ Sah Elaun
             <tr>
               <!-- <td>{{ forloop.counter }}</td> -->
               <td>{{ elaun.created_at | date:"d-m-Y" }}</td>
+              <td>{{ elaun.pemohon }}</td>
               <td>
+                  {% if elaun.status == '00' %}
+                    Dalam Permohonan
+                  {% endif %}                
                   {% if elaun.status == '01' %}
                     Menunggu Pengesahan
                   {% endif %}
@@ -71,14 +78,31 @@ Sah Elaun
                     Kelulusan Ditolak            
                   {% endif %}
               </td>
-              <td>{{ elaun.tarikh_mula | date:"d-m-Y" }} {{ elaun.masa_mula }}</td>
-              <td>{{ elaun.tarikh_akhir | date:"d-m-Y" }} {{ elaun.masa_akhir }}</td>
-              <td>{{ elaun.masa }}</td>
-              <td>{{ elaun.tujuan }}</td>
+              <td>{{ elaun.tarikh_mula | date:"d-m-Y h:i A" }}</td>
+              <td>{{ elaun.tarikh_akhir | date:"d-m-Y h:i A" }}</td>
+              <td>{{ elaun.sebab_lebih_masa }}</td>
+            </tr>
+            <tr>
+              <form method="POST" action="">
+                {% csrf_token %}
+                <input type="hidden" value="{{elaun.id}}" name="elaun_id">
+              <td colspan="4">
+                <input class="form-control form-control-sm" type="text" value="Nota Pengesahan" id="nota{{ forloop.counter }}" name="nota">
+              </td>               
+              <td>
+                <div class="custom-control custom-checkbox text-right">
+                  <input type="checkbox" class="custom-control-input" id="customCheck{{ forloop.counter }}" name="sah">
+                  <label class="custom-control-label" for="customCheck{{ forloop.counter }}">Sah?</label>
+                </div>
+              </td>
+              <td>                
+                <button class="btn btn-default btn-sm" type="submit">Hantar</button>
+              </td> 
+              </form>             
             </tr>
             {% empty %}
             <tr>
-              <td>Tiada Rekod</td>
+              <td colspan="6">Tiada Rekod</td>
             </tr>            
             {% endfor %}
         </tbody>
@@ -89,7 +113,10 @@ Sah Elaun
   
         </div> 
       </div>
-    </div>   
+    </div>  
+    {% endif %} 
+
+
 
   </div>
 

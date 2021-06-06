@@ -49,17 +49,6 @@ class ElaunMohonForm(Form):
     pegawai_lulus = forms.CharField(label="Pegawai Pelulus")
     pegawai_sah = forms.CharField(label="Pegawai Pengesah")
 
-    noPekerja1 = forms.CharField(required=False)
-    noPekerja2 = forms.CharField(required=False)
-    noPekerja3 = forms.CharField(required=False)
-    noPekerja4 = forms.CharField(required=False)
-    noPekerja5 = forms.CharField(required=False)
-    noPekerja6 = forms.CharField(required=False)
-    noPekerja7 = forms.CharField(required=False)
-    noPekerja8 = forms.CharField(required=False)
-    noPekerja9 = forms.CharField(required=False)
-    noPekerja10 = forms.CharField(required=False)
-
 
 class ElaunSahForm(Form):
 

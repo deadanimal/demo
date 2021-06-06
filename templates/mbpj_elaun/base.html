@@ -15,14 +15,14 @@
   <link rel="stylesheet" href="{% static 'assets/vendor/@fortawesome/fontawesome-free/css/all.min.css' %}" type="text/css">
   <link rel="stylesheet" href="{% static 'assets/css/argon.css' %}" type="text/css">
   <link rel="stylesheet" href="{% static 'assets/css/app.css' %}" type="text/css">
-  <link rel="stylesheet" href="{% static 'assets/vendor/animate.css/animate.min.css' %}">
-  <link rel="stylesheet" href="{% static 'assets/vendor/sweetalert2/dist/sweetalert2.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/vendor/animate.css/animate.min.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static 'assets/vendor/sweetalert2/dist/sweetalert2.min.css' %}" type="text/css">
 
-  <link rel="stylesheet" href="{% static 'assets/vendor/datatables.net-bs4/css/dataTables.bootstrap4.min.css' %}">
-  <link rel="stylesheet" href="{% static 'assets/vendor/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css' %}">
-  <link rel="stylesheet" href="{% static 'assets/vendor/datatables.net-select-bs4/css/select.bootstrap4.min.css' %}"> 
+  <link rel="stylesheet" href="{% static 'assets/vendor/datatables.net-bs4/css/dataTables.bootstrap4.min.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static 'assets/vendor/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static 'assets/vendor/datatables.net-select-bs4/css/select.bootstrap4.min.css' %}" type="text/css"> 
   
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css" type="text/css">
 
 
 
@@ -74,7 +74,7 @@ $(document).on('click', '.dropdown-menu', function (e) {
 		<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">Menu</a>
 	    <div class="dropdown-menu megamenu" role="menu">
                        
-                    <div class="row mx-6">
+                    <div class="row">
 
                         {% if userGroup == '1' or userGroup == '2' or userGroup == '3' or userGroup == '4' or userGroup == '5' %}    
                         <div class="col-md-6">
@@ -83,14 +83,14 @@ $(document).on('click', '.dropdown-menu', function (e) {
 	                            <ul class="list-unstyled">                                  
                                     {% if userGroup == '1' or userGroup == '2' %}    
                                     <li><a href="/mbpj-elaun/mohon">Permohonan Elaun</a></li>                            
-                                    <li><a href="/mbpj-elaun/tuntut">Tuntutan Elaun</a></li>	
                                     {% endif %}
                                     {% if userGroup == '2' or userGroup == '3' %}                                                           
-                                    <li><a href="/mbpj-elaun/sah">Pengesahkan Elaun</a></li>	           
+                                    <li><a href="/mbpj-elaun/sah">Pengesahan Elaun</a></li>	           
                                     {% endif %}
-                                    {% if userGroup == '3' or userGroup == '4' or userGroup == '5' %}                     
-                                    <li><a href="/mbpj-elaun/lulus">Keluluskan Elaun</a></li>	                            
+                                    {% if userGroup == '3' or userGroup == '4' %}                     
+                                    <li><a href="/mbpj-elaun/lulus">Kelulusan Elaun</a></li>	                            
                                     {% endif %}
+                                    <li><a href="/mbpj-elaun/tuntut">Tuntutan Elaun</a></li>	
 	                            </ul>
                             </div>  
                         </div>     

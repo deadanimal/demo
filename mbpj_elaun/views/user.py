@@ -7,6 +7,8 @@ from django.contrib.auth.models import User
 from django.shortcuts import render, redirect, reverse
 from django.views.generic import View
 
+import datetime
+
 from django.http import Http404, JsonResponse
 from rest_framework.filters import SearchFilter, OrderingFilter
 from rest_framework.permissions import IsAuthenticated, AllowAny
@@ -48,7 +50,13 @@ class UserDashboardView(View):
 
         context['nric'] = request.session['nric']
         context['user'] = request.session['user'] 
-        context['userGroup'] = request.session['userGroup']            
+        context['userGroup'] = request.session['userGroup']      
+
+        if context['user']['noPekerja'] == '1':
+            elaun = Elaun.objects.filter(elaunperson__in=ElaunPerson.objects.filter(nric=context['nric']))
+        else:
+            elaun = Elaun.objects.all()    
+        context['elauns'] = elaun              
         
         return render(request, 'mbpj_elaun/dashboard.html', context)      
 
@@ -111,25 +119,44 @@ class UserMohonView(View):
         context['user'] = request.session['user'] 
         context['userGroup'] = request.session['userGroup']  
         context['form'] = ElaunMohonForm()       
-        elaun = Elaun.objects.all()
+        elaun = Elaun.objects.filter(elaunperson__in=ElaunPerson.objects.filter(nric=context['nric']))
         context['elauns'] = elaun
         
         return render(request, 'mbpj_elaun/elaun_mohon.html', context)
 
     def post(self, request):
         form = ElaunMohonForm(request.POST)
-        print(form.data['jenis_permohonan'])
+
         elaun = Elaun.objects.create(
+            status= '00',
             jenis_permohonan = form.data['jenis_permohonan'],
             tarikh_mula = form.data['tarikh_mula'],
             tarikh_akhir = form.data['tarikh_akhir'],
-            masa_mula = form.data['masa_mula'],
-            masa_akhir = form.data['masa_akhir'],
             sebab_lebih_masa = form.data['sebab_lebih_masa'],
             lokasi = form.data['lokasi'],
             pegawai_lulus = form.data['pegawai_lulus'],
             pegawai_sah = form.data['pegawai_sah'],
         )
+        masa_mula = datetime.datetime.strptime(elaun.tarikh_mula, "%Y-%m-%dT%H:%M")
+        masa_akhir = datetime.datetime.strptime(elaun.tarikh_akhir, "%Y-%m-%dT%H:%M")
+        elaun.masa = masa_akhir - masa_mula
+        elaun.save()
+        ElaunPerson.objects.create(
+            nric = form.data['pemohon_nric'],
+            kod_pekerja = form.data['pemohon_kod_pekerja'],
+            elaun = elaun
+        )        
+        if form.data['jenis_permohonan'] == 'A2':
+            print(form.data)
+            count = int(form.data['count'])
+            for item in range(1, count+1):
+                form_statement = 'noPekerja' + str(item)
+                person_tambahan = form.data[form_statement]
+                ElaunPerson.objects.create(
+                    kod_pekerja = person_tambahan,
+                    pemohon = False,
+                    elaun = elaun
+                )                        
         return redirect(reverse('mbpj_elaun_mohon'))
 
 
@@ -142,7 +169,10 @@ class UserLulusView(View):
 
         context['nric'] = request.session['nric']
         context['user'] = request.session['user'] 
-        context['userGroup'] = request.session['userGroup']             
+        context['userGroup'] = request.session['userGroup']   
+
+        elauns = Elaun.objects.filter(pegawai_lulus=context['user']['noPekerja'])
+        context['elauns'] = elauns                
         
         return render(request, 'mbpj_elaun/elaun_lulus.html', context)        
 
@@ -156,8 +186,16 @@ class UserSahView(View):
 
         context['nric'] = request.session['nric']
         context['user'] = request.session['user'] 
-        context['userGroup'] = request.session['userGroup']             
-        
+        context['userGroup'] = request.session['userGroup'] 
+
+        elauns = Elaun.objects.filter(pegawai_sah=context['user']['noPekerja'])
+        for elaun in elauns:
+            elaun_persons = ElaunPerson.objects.filter(elaun=elaun)
+            for person in elaun_persons:
+                if person.pemohon:
+                    elaun.pemohon = person.kod_pekerja
+        context['elauns'] = elauns     
+
         return render(request, 'mbpj_elaun/elaun_sah.html', context)        
 
     def post(self, request): 
@@ -167,9 +205,18 @@ class UserSahView(View):
 
         context['nric'] = request.session['nric']
         context['user'] = request.session['user'] 
-        context['userGroup'] = request.session['userGroup']             
+        context['userGroup'] = request.session['userGroup']   
+
+        elaun_id = request.POST['elaun_id']
+        elaun = Elaun.objects.get(id=elaun_id)
+        if request.POST['sah'] == 'on':
+            elaun.pegawai_sah = True
+        else:
+            elaun.pegawai_sah = False
+        elaun.pegawai_sah_catatan = request.POST['nota']
+        elaun.save()
         
-        return render(request, 'mbpj_elaun/elaun_sah.html', context)             
+        return redirect(reverse('mbpj_elaun_sah'))             
 
 class UserTuntutView(View):
 
@@ -183,19 +230,7 @@ class UserTuntutView(View):
         context['userGroup'] = request.session['userGroup']             
         
         return render(request, 'mbpj_elaun/elaun_tuntut.html', context)                 
-
-class UserKesIstimewaView(View):
-
-    def get(self, request):
-        context = {}
-        if request.session.get('nric') == None:
-            return redirect(reverse('mbpj_elaun_login'))
-
-        context['nric'] = request.session['nric']
-        context['user'] = request.session['user'] 
-        context['userGroup'] = request.session['userGroup']             
-        
-        return render(request, 'mbpj_elaun/elaun_kes_istimewa.html', context)                         
+                      
 
 class UserPeriksaView(View):
 

@@ -10,11 +10,9 @@ class Elaun(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
 
     jenis_permohonan = models.CharField(max_length=255, null=False)
-    tarikh_mula = models.DateField(max_length=255, null=False)
-    tarikh_akhir = models.DateField(max_length=255, null=False)
-    masa_mula = models.TimeField(max_length=255, null=False)
-    masa_akhir = models.TimeField(max_length=255, null=False)
-    masa = models.TimeField
+    tarikh_mula = models.DateTimeField(max_length=255, null=False)
+    tarikh_akhir = models.DateTimeField(max_length=255, null=False)
+    masa = models.DurationField(null=True)
 
     sebab_lebih_masa = models.CharField(max_length=255, null=False)
     lokasi = models.CharField(max_length=255, null=False)
@@ -62,8 +60,8 @@ class Elaun(models.Model):
 class ElaunPerson(models.Model):
     
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    nric = models.CharField(max_length=255, null=False)
-    kod_pekerja = models.CharField(max_length=255, null=False)
+    nric = models.CharField(max_length=255, null=True)
+    kod_pekerja = models.CharField(max_length=255, null=True)
     pemohon = models.BooleanField(default=True)
     
     elaun = models.ForeignKey(Elaun, on_delete=models.CASCADE, null=False)
@@ -75,4 +73,22 @@ class ElaunPerson(models.Model):
 
     def __str__(self):
         return self.id    
+
+
+class ElaunTuntutan(models.Model):
+    
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+
+    nric = models.CharField(max_length=255, null=True)
+    kod_pekerja = models.CharField(max_length=255, null=True)    
+    elaun = models.ManyToManyField(Elaun, null=True)
+
+
+    created_at = models.DateTimeField(auto_now_add=True) 
+
+    class Meta:
+        ordering = ['-created_at']
+
+    def __str__(self):
+        return self.id        
         
