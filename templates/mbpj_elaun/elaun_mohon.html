@@ -12,12 +12,10 @@ Mohon Elaun
 
   <div class="col-md-12">
 
-    <div class="row px-6">
       <h1>Permohonan Elaun</h1>
-    </div>
 
     <div class="row">
-      <div class="col-md-12 px-6">
+      <div class="col-md-12">
         <div class="card">
           <div class="card-header">
             <h3 class="h3 card-title my--2">Maklumat Peribadi</h3>
@@ -106,10 +104,10 @@ Mohon Elaun
     </div>
 
     <div class="row">
-      <div class="col-md-12 px-6">
+      <div class="col-md-12">
         <div class="card">
           <div class="card-header">
-            <h3 class="h3 card-title my--2">Senarai Permohonan</h3>
+            <h3 class="h3 card-title my--2">Senarai Permohonan Sendiri</h3>
           </div>      
   
           <div class="card-body px-0">
@@ -118,27 +116,38 @@ Mohon Elaun
     <table class="table table-flush" id="datatable-basic">
         <thead class="thead-light">
             <tr>
-                <th>No</th>
+                <!-- <th>No</th> -->
                 <th>Tarikh Permohonan</th>
                 <th>Status</th>
                 <th>Tarikh & Masa Mula</th>
                 <th>Tarikh & Masa Akhir</th>
                 <th>Masa</th>
                 <th>Tujuan</th>
-                <th>Tindakan</th>
             </tr>
         </thead>
         <tbody>
             {% for elaun in elauns %}
             <tr>
-              <td>{{ forloop.counter }}</td>
-              <td>{{ elaun.created_at }}</td>
-              <td>Status</td>
-              <td>{{ elaun.tarikh_mula }} {{ elaun.masa_mula }}</td>
-              <td>{{ elaun.tarikh_akhir }} {{ elaun.masa_akhir }}</td>
-              <td>Masa</td>
-              <td>Tujuan</td>
-              <td>Tindakan</td>
+              <!-- <td>{{ forloop.counter }}</td> -->
+              <td>{{ elaun.created_at | date:"d-m-Y" }}</td>
+              <td>
+                  {% if elaun.status == '01' %}
+                    Menunggu Pengesahan
+                  {% endif %}
+                  {% if elaun.status == '02' %}
+                    Pengesahan Ditolak
+                  {% endif %}
+                  {% if elaun.status == '03' %}
+                    Menunggu Kelulusan
+                  {% endif %}
+                  {% if elaun.status == '04' %}
+                    Kelulusan Ditolak            
+                  {% endif %}
+              </td>
+              <td>{{ elaun.tarikh_mula | date:"d-m-Y" }} {{ elaun.masa_mula }}</td>
+              <td>{{ elaun.tarikh_akhir | date:"d-m-Y" }} {{ elaun.masa_akhir }}</td>
+              <td>{{ elaun.masa }}</td>
+              <td>{{ elaun.tujuan }}</td>
             </tr>
             {% empty %}
             <tr>

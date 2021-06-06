@@ -73,8 +73,10 @@ $(document).on('click', '.dropdown-menu', function (e) {
 	<li class="nav-item dropdown has-megamenu">
 		<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">Menu</a>
 	    <div class="dropdown-menu megamenu" role="menu">
-   
+                       
                     <div class="row mx-6">
+
+                        {% if userGroup == '1' or userGroup == '2' or userGroup == '3' or userGroup == '4' or userGroup == '5' %}    
                         <div class="col-md-6">
                             <div class="col-megamenu">
                             	<h2 class="title">Elaun Lebih Masa</h2>
@@ -84,17 +86,15 @@ $(document).on('click', '.dropdown-menu', function (e) {
                                     <li><a href="/mbpj-elaun/tuntut">Tuntutan Elaun</a></li>	
                                     {% endif %}
                                     {% if userGroup == '2' or userGroup == '3' %}                                                           
-                                    <li><a href="/mbpj-elaun/sah">Mengesahkan Elaun</a></li>	           
+                                    <li><a href="/mbpj-elaun/sah">Pengesahkan Elaun</a></li>	           
                                     {% endif %}
                                     {% if userGroup == '3' or userGroup == '4' or userGroup == '5' %}                     
-                                    <li><a href="/mbpj-elaun/lulus">Meluluskan Elaun</a></li>	                            
-                                    {% endif %}
-                                    {% if userGroup == '2' or userGroup == '3' or userGroup == '4' %}                                  
-                                    <li><a href="/mbpj-elaun/kes-istimewa">Permohanan Elaun (Kes Istimewa)</a></li>	                            
+                                    <li><a href="/mbpj-elaun/lulus">Keluluskan Elaun</a></li>	                            
                                     {% endif %}
 	                            </ul>
                             </div>  
-                        </div>        
+                        </div>     
+                        {% endif %}   
                         
                         {% if userGroup == '10' %}                        
                         <div class="col-md-3">
@@ -137,7 +137,7 @@ $(document).on('click', '.dropdown-menu', function (e) {
         </div> 
 	</li>
   <li class="nav-item">
-    <a class="nav-link text-danger" href="/mbpj-elaun/logout">Keluar</a></li> 
+    <a class="nav-link text-danger" href="/mbpj-elaun/logout">Log Keluar</a></li> 
   </li>    
 </ul>
 
@@ -145,7 +145,7 @@ $(document).on('click', '.dropdown-menu', function (e) {
 
 </nav>
 
-    <div class="container-fluid mt-3 mb-3">
+    <div class="container mt-3 mb-3">
 
       {% block content %}{% endblock %}
 

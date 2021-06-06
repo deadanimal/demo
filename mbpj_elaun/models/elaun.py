@@ -10,19 +10,45 @@ class Elaun(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
 
     jenis_permohonan = models.CharField(max_length=255, null=False)
-    tarikh_mula = models.CharField(max_length=255, null=False)
-    tarikh_akhir = models.CharField(max_length=255, null=False)
-    masa_mula = models.CharField(max_length=255, null=False)
-    masa_akhir = models.CharField(max_length=255, null=False)
+    tarikh_mula = models.DateField(max_length=255, null=False)
+    tarikh_akhir = models.DateField(max_length=255, null=False)
+    masa_mula = models.TimeField(max_length=255, null=False)
+    masa_akhir = models.TimeField(max_length=255, null=False)
+    masa = models.TimeField
 
     sebab_lebih_masa = models.CharField(max_length=255, null=False)
     lokasi = models.CharField(max_length=255, null=False)
-    pegawai_lulus = models.CharField(max_length=255, null=False)
-    pegawai_sah = models.CharField(max_length=255, null=False)
 
-    hari =  models.CharField(max_length=255, null=True)
-    waktu =  models.CharField(max_length=255, null=True)
-    kadar_jam =  models.CharField(max_length=255, null=True)
+    STATUS = [
+        ('00', 'Dalam Permohonan'),
+        ('01', 'Menunggu Pengesahan oleh Pegawai Pengesah'),
+        ('02', 'Pengesahan Ditolak'),
+        ('03', 'Menunggu Kelulusan oleh Pegawai Pelulus'),
+        ('04', 'Kelulusan Ditolak'),
+        ('05', 'Menunggu Kelulusan oleh Datuk Bandar'),
+
+        ('06', 'Boleh dituntut'),
+        ('07', 'Dalam tuntutan'),
+
+        ('08', 'Semakan oleh Perbendaharaan'),
+        ('09', 'Pindaan oleh Perbendaharaan'),
+        ('10', 'Lulus - Dimasukkan Dalam Gaji'),
+
+        ('NA', 'Not Available'),
+    ]
+    status = models.CharField(max_length=2, choices=STATUS, default='NA')
+
+    pegawai_lulus = models.CharField(max_length=255, null=False)
+    pegawai_lulus_catatan = models.TextField(null=True)
+    pegawai_luluskan = models.BooleanField(default=False)
+
+    pegawai_sah = models.CharField(max_length=255, null=False)
+    pegawai_sah_catatan = models.TextField(null=True)
+    pegawai_sahkan = models.BooleanField(default=False)
+
+    hari =  models.DateField(null=True)
+    waktu =  models.FloatField(null=True)
+    kadar_jam =  models.FloatField(null=True)
     tujuan =  models.CharField(max_length=255, null=True)
 
     created_at = models.DateTimeField(auto_now_add=True) 
