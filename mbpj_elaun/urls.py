@@ -1,7 +1,7 @@
 from django.urls import path, include
 
-from mbpj_elaun.views.user import *
-from mbpj_elaun.views.api import *
+from .views.user import *
+from .views.api import *
 
 
 urlpatterns = [

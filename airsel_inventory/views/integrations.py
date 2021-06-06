@@ -16,8 +16,6 @@ from rest_framework.decorators import action
 from rest_framework import status, viewsets
 from django_filters.rest_framework import DjangoFilterBackend
 
-from accounts.helpers import is_user_login_ok, get_login_url, get_or_create_user
-
 from helpers.billplz import create_bill
 from helpers.qr import generate_image_qr_from_text
 

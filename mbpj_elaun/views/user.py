@@ -1,44 +1,33 @@
+import datetime
+import json
 
-from mbpj_elaun.models.login import Login
 from django.conf import settings
 from django.contrib import messages
-
+from django.http import Http404, JsonResponse
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect, reverse
 from django.views.generic import View
 
-import datetime
-
-from django.http import Http404, JsonResponse
-from rest_framework.filters import SearchFilter, OrderingFilter
-from rest_framework.permissions import IsAuthenticated, AllowAny
-from rest_framework.response import Response
-from rest_framework.views import APIView
-from rest_framework.decorators import action
-from rest_framework import status, viewsets
-from django_filters.rest_framework import DjangoFilterBackend
-
-from accounts.helpers import is_user_login_ok, get_login_url, get_or_create_user
-
-
-import json
-
-
 from helpers.billplz import create_bill
 from helpers.qr import generate_image_qr_from_text
 
-from mbpj_elaun.forms.elaun import (
+
+from ..forms.elaun import (
     ElaunMohonForm,
 )
 
-from mbpj_elaun.forms.login import (
+from ..forms.login import (
     LoginForm,
     TukarPasswordForm
 )
 
-from mbpj_elaun.models.elaun import (
+from ..models.elaun import (
     Elaun,
     ElaunPerson
+)
+
+from ..models.login import (
+    Login
 )
 
 class UserDashboardView(View):
@@ -58,7 +47,7 @@ class UserDashboardView(View):
             elaun = Elaun.objects.all()    
         context['elauns'] = elaun              
         
-        return render(request, 'mbpj_elaun/dashboard.html', context)      
+        return render(request, 'dashboard.html', context)      
 
 class UserLoginView(View):
 
@@ -66,7 +55,7 @@ class UserLoginView(View):
         context = {}
         form = LoginForm()
         context['form'] = form
-        return render(request, 'mbpj_elaun/login.html', context)   
+        return render(request, 'login.html', context)   
 
 
     def post(self, request):
@@ -122,7 +111,7 @@ class UserMohonView(View):
         elaun = Elaun.objects.filter(elaunperson__in=ElaunPerson.objects.filter(nric=context['nric']))
         context['elauns'] = elaun
         
-        return render(request, 'mbpj_elaun/elaun_mohon.html', context)
+        return render(request, 'elaun_mohon.html', context)
 
     def post(self, request):
         form = ElaunMohonForm(request.POST)
@@ -174,7 +163,7 @@ class UserLulusView(View):
         elauns = Elaun.objects.filter(pegawai_lulus=context['user']['noPekerja'])
         context['elauns'] = elauns                
         
-        return render(request, 'mbpj_elaun/elaun_lulus.html', context)        
+        return render(request, 'elaun_lulus.html', context)        
 
 
 class UserSahView(View):
@@ -196,7 +185,7 @@ class UserSahView(View):
                     elaun.pemohon = person.kod_pekerja
         context['elauns'] = elauns     
 
-        return render(request, 'mbpj_elaun/elaun_sah.html', context)        
+        return render(request, 'elaun_sah.html', context)        
 
     def post(self, request): 
         context = {}
@@ -229,7 +218,7 @@ class UserTuntutView(View):
         context['user'] = request.session['user'] 
         context['userGroup'] = request.session['userGroup']             
         
-        return render(request, 'mbpj_elaun/elaun_tuntut.html', context)                 
+        return render(request, 'elaun_tuntut.html', context)                 
                       
 
 class UserPeriksaView(View):
@@ -243,7 +232,7 @@ class UserPeriksaView(View):
         context['user'] = request.session['user'] 
         context['userGroup'] = request.session['userGroup']             
         
-        return render(request, 'mbpj_elaun/finance_periksa.html', context)          
+        return render(request, 'finance_periksa.html', context)          
 
 
 class UserPindaanView(View):
@@ -257,7 +246,7 @@ class UserPindaanView(View):
         context['user'] = request.session['user'] 
         context['userGroup'] = request.session['userGroup']             
         
-        return render(request, 'mbpj_elaun/finance_pindaan.html', context)                                         
+        return render(request, 'finance_pindaan.html', context)                                         
 
 
 class UserSemakanView(View):
@@ -271,7 +260,7 @@ class UserSemakanView(View):
         context['user'] = request.session['user'] 
         context['userGroup'] = request.session['userGroup']             
         
-        return render(request, 'mbpj_elaun/finance_semakan.html', context)                                                 
+        return render(request, 'finance_semakan.html', context)                                                 
 
 class UserPengurusanView(View):
 
@@ -284,7 +273,7 @@ class UserPengurusanView(View):
         context['user'] = request.session['user'] 
         context['userGroup'] = request.session['userGroup']             
         
-        return render(request, 'mbpj_elaun/sistem_pengurusan.html', context)                                                         
+        return render(request, 'sistem_pengurusan.html', context)                                                         
 
 
 class UserPendaftaranView(View):
@@ -298,7 +287,7 @@ class UserPendaftaranView(View):
         context['user'] = request.session['user'] 
         context['userGroup'] = request.session['userGroup']             
         
-        return render(request, 'mbpj_elaun/sistem_pendaftaran.html', context)        
+        return render(request, 'sistem_pendaftaran.html', context)        
 
 class UserMaintenanceView(View):
 
@@ -311,7 +300,7 @@ class UserMaintenanceView(View):
         context['user'] = request.session['user'] 
         context['userGroup'] = request.session['userGroup']             
         
-        return render(request, 'mbpj_elaun/sistem_maintenance.html', context)        
+        return render(request, 'sistem_maintenance.html', context)        
 
 
 class UserBantuanView(View):
@@ -325,7 +314,7 @@ class UserBantuanView(View):
         context['user'] = request.session['user'] 
         context['userGroup'] = request.session['userGroup']             
         
-        return render(request, 'mbpj_elaun/bantuan.html', context)                
+        return render(request, 'bantuan.html', context)                
 
 
 class UserLaporanView(View):
@@ -339,7 +328,7 @@ class UserLaporanView(View):
         context['user'] = request.session['user'] 
         context['userGroup'] = request.session['userGroup']             
         
-        return render(request, 'mbpj_elaun/laporan.html', context)              
+        return render(request, 'laporan.html', context)              
 
 
 class UserProfilView(View):
@@ -354,13 +343,14 @@ class UserProfilView(View):
         context['userGroup'] = request.session['userGroup']    
         context['form'] = TukarPasswordForm()
         
-        return render(request, 'mbpj_elaun/profil.html', context)           
+        return render(request, 'profil.html', context)           
 
     def post(self, request):
 
         form = TukarPasswordForm(request.POST)
         if form.is_valid():
             print(form)
+            # Change password here...
         else:
             print(form.errors)
 

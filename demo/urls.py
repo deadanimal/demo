@@ -3,11 +3,12 @@ from django.urls import path, include
 
 
 urlpatterns = [
-    
-    path('', include('accounts.urls')),
+    path('', include('demoapp.urls')),
 
+    # Demo
     path('jpj-osc/', include('jpj_osc.urls')),
+
+    # Project
     path('airsel-inventory/', include('airsel_inventory.urls')),
     path('mbpj-elaun/', include('mbpj_elaun.urls')),
-    path('mbpj-rollcall/', include('mbpj_rollcall.urls')),
 ]

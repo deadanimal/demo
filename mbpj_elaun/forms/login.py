@@ -1,6 +1,6 @@
 from django.forms import ModelForm, Form
 from django import forms
-from mbpj_elaun.models.login import Login
+from ..models.login import Login
 
 class LoginForm(Form):
 

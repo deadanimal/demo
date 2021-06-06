@@ -2,7 +2,7 @@ from django.forms import ModelForm, Form
 from django.forms.models import inlineformset_factory, BaseInlineFormSet
 from django import forms
 
-from mbpj_elaun.models.elaun import (
+from ..models.elaun import (
     Elaun,
     ElaunPerson
 )

@@ -30,13 +30,13 @@ INSTALLED_APPS = [
     'rest_framework',
     'crispy_forms',
 
-
-    'accounts',
-
+    # Demo
+    'demoapp',
     'jpj_osc',
+
+    # Project
     'airsel_inventory',
     'mbpj_elaun',
-    'mbpj_rollcall'
 
 ]
 

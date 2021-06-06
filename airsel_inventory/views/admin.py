@@ -18,7 +18,6 @@ from fusionauth.fusionauth_client import FusionAuthClient
 
 from decouple import config
 
-from accounts.helpers import is_user_login_ok, get_login_url, get_or_create_user
 
 from helpers.qr import generate_image_qr_from_text
 
