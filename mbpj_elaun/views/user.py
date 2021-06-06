@@ -158,7 +158,18 @@ class UserSahView(View):
         context['user'] = request.session['user'] 
         context['userGroup'] = request.session['userGroup']             
         
-        return render(request, 'mbpj_elaun/elaun_sah.html', context)         
+        return render(request, 'mbpj_elaun/elaun_sah.html', context)        
+
+    def post(self, request): 
+        context = {}
+        if request.session.get('nric') == None:
+            return redirect(reverse('mbpj_elaun_login'))
+
+        context['nric'] = request.session['nric']
+        context['user'] = request.session['user'] 
+        context['userGroup'] = request.session['userGroup']             
+        
+        return render(request, 'mbpj_elaun/elaun_sah.html', context)             
 
 class UserTuntutView(View):
 
