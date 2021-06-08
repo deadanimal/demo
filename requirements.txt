@@ -19,6 +19,8 @@ fusionauth-client==1.27.2
 geoip2==4.2.0
 gunicorn==20.1.0
 idna==2.10
+importlib-metadata==4.5.0
+Markdown==3.3.4
 maxminddb==2.0.3
 more-itertools==8.7.0
 multidict==5.1.0
@@ -30,6 +32,7 @@ py-bip39-bindings==0.1.6
 py-ed25519-bindings==0.1.2
 py-moneyed==0.8.0
 py-sr25519-bindings==0.1.2
+PyJWT==2.1.0
 pymaging @ git+git://github.com/ojii/pymaging.git@596a08fce5664e58d6e8c96847393fbe987783f2
 pymaging-png @ git+git://github.com/ojii/pymaging-png.git@83d85c44e4b2342818e6c068065e031a9f81bb9f
 PyMySQL==1.0.2
@@ -52,3 +55,4 @@ whitenoise==5.2.0
 wrapt==1.12.1
 xxhash==2.0.2
 yarl==1.6.3
+zipp==3.4.1
