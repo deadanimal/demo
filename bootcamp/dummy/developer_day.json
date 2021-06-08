@@ -1,0 +1,79 @@
+{
+    "listOfDays": [
+        {
+            "no": 1,
+            "name": "Learn Python 1",
+            "description": "Chapter 0 - Chapter 17"
+        },
+        {
+            "no": 2,
+            "name": "Learn Python 2",
+            "description": "Chapter 18 - Chapter 35"
+        },
+        {
+            "no": 3,
+            "name": "Learn Python 3",
+            "description": "Chapter 36 - Chapter 44"
+        },
+        {
+            "no": 4,
+            "name": "Python Packages",
+            "description": "Common Python Packages, flask, virtualenv, requests"
+        },
+        {
+            "no": 5,
+            "name": "Week Review",
+            "description": "First Week In Review"
+        },
+        {
+            "no": 6,
+            "name": "Django 1",
+            "description": "Project Structure, URL"
+        },
+        {
+            "no": 7,
+            "name": "Django 2",
+            "description": "Model, Model Migration, Form, Template"
+        },
+        {
+            "no": 8,
+            "name": "Django 3",
+            "description": "Customising HTML/CSS"
+        },
+        {
+            "no": 9,
+            "name": "Javascript 1",
+            "description": "Basic Javascript"
+        },
+        {
+            "no": 10,
+            "name": "Javascript 2",
+            "description": "Copy & Paste Javascript, Chart, Datatable, Modal"
+        },   
+        {
+            "no": 11,
+            "name": "Twitter: Basic CRUD",
+            "description": ""
+        },  
+        {
+            "no": 12,
+            "name": "Twitter: Business",
+            "description": ""
+        },  
+        {
+            "no": 13,
+            "name": "MySejahtera: Business",
+            "description": ""
+        },  
+        {
+            "no": 14,
+            "name": "MySejahtera: Being Creative",
+            "description": ""
+        },   
+        {
+            "no": 15,
+            "name": "Prototype Day",
+            "description": "Do a Prototype"
+        }                                                                                                                                              
+    ]
+}

@@ -30,8 +30,12 @@ INSTALLED_APPS = [
     'rest_framework',
     'crispy_forms',
 
-    # Demo
+    # Pipeline
     'demoapp',
+    'bootcamp',
+    'piper',
+
+    # Prototype
     'jpj_osc',
 
     # Project
@@ -104,13 +108,9 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
 
 GDAL_LIBRARY_PATH = os.getenv('GDAL_LIBRARY_PATH')
@@ -126,6 +126,5 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
-
 
 USE_TZ = False

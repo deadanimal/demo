@@ -3,9 +3,13 @@ from django.urls import path, include
 
 
 urlpatterns = [
-    path('', include('demoapp.urls')),
 
-    # Demo
+    # Pipeline Related
+    path('', include('demoapp.urls')),
+    path('bootcamp/', include('bootcamp.urls')),
+    path('piper/', include('piper.urls')),
+
+    # Prototype
     path('jpj-osc/', include('jpj_osc.urls')),
 
     # Project

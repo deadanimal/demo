@@ -1,0 +1,57 @@
+
+{% extends "bootcamp_base.html" %}
+{% load static %}
+
+{% block title %}
+Developer Basic Training
+{% endblock %}
+
+{% block content %}
+
+<div class="row mt-6">
+    <div class="col">
+        <h1>Developer Basic Training</h1>
+        <p>List of training days</p>
+    </div>     
+</div>
+
+<div class="row mb-6">   
+
+    <div class="col-md-4">
+        <h3>Material:</h3>
+        <ol>
+            <li><a href="{% static 'lpthw3.pdf' %}">Learn Python The Hard Way</a></li>
+        </ol>        
+        <h3>Day Link</h3>
+        <ul style="list-style-type:none;">
+            {% for day in days %}
+            <li><a href="#day-{{day.no}}">Day {{ day.no }}: {{ day.name }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="col-md-8">
+
+        <ul style="list-style-type:none;">
+    
+            {% for day in days %}
+            <li id="day-{{day.no}}" class="mb-6">
+                <h1><a href="{{ day.no}}">Day {{ day.no }}: {{ day.name }}</a></h1>
+                <h4>Description</h4>
+                <p>{{ day.description }}</p>
+            </li> 
+            {% endfor %}  
+        
+        </ul>
+  
+    </div>
+
+</div>
+{% endblock %}
+
+{% block javascript %}
+
+  
+{% endblock %}  
+
+ 

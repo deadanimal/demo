@@ -47,7 +47,7 @@ class UserDashboardView(View):
             elaun = Elaun.objects.all()    
         context['elauns'] = elaun              
         
-        return render(request, 'dashboard.html', context)      
+        return render(request, 'mbpj_elaun_dashboard.html', context)      
 
 class UserLoginView(View):
 
@@ -55,7 +55,7 @@ class UserLoginView(View):
         context = {}
         form = LoginForm()
         context['form'] = form
-        return render(request, 'login.html', context)   
+        return render(request, 'mbpj_elaun_login.html', context)   
 
 
     def post(self, request):
@@ -111,7 +111,7 @@ class UserMohonView(View):
         elaun = Elaun.objects.filter(elaunperson__in=ElaunPerson.objects.filter(nric=context['nric']))
         context['elauns'] = elaun
         
-        return render(request, 'elaun_mohon.html', context)
+        return render(request, 'mbpj_elaun_elaun_mohon.html', context)
 
     def post(self, request):
         form = ElaunMohonForm(request.POST)
@@ -163,7 +163,7 @@ class UserLulusView(View):
         elauns = Elaun.objects.filter(pegawai_lulus=context['user']['noPekerja'])
         context['elauns'] = elauns                
         
-        return render(request, 'elaun_lulus.html', context)        
+        return render(request, 'mbpj_elaun_elaun_lulus.html', context)        
 
 
 class UserSahView(View):
@@ -185,7 +185,7 @@ class UserSahView(View):
                     elaun.pemohon = person.kod_pekerja
         context['elauns'] = elauns     
 
-        return render(request, 'elaun_sah.html', context)        
+        return render(request, 'mbpj_elaun_elaun_sah.html', context)        
 
     def post(self, request): 
         context = {}
@@ -218,7 +218,7 @@ class UserTuntutView(View):
         context['user'] = request.session['user'] 
         context['userGroup'] = request.session['userGroup']             
         
-        return render(request, 'elaun_tuntut.html', context)                 
+        return render(request, 'mbpj_elaun_elaun_tuntut.html', context)                 
                       
 
 class UserPeriksaView(View):
@@ -232,7 +232,7 @@ class UserPeriksaView(View):
         context['user'] = request.session['user'] 
         context['userGroup'] = request.session['userGroup']             
         
-        return render(request, 'finance_periksa.html', context)          
+        return render(request, 'mbpj_elaun_finance_periksa.html', context)          
 
 
 class UserPindaanView(View):
@@ -246,7 +246,7 @@ class UserPindaanView(View):
         context['user'] = request.session['user'] 
         context['userGroup'] = request.session['userGroup']             
         
-        return render(request, 'finance_pindaan.html', context)                                         
+        return render(request, 'mbpj_elaun_finance_pindaan.html', context)                                         
 
 
 class UserSemakanView(View):
@@ -260,7 +260,7 @@ class UserSemakanView(View):
         context['user'] = request.session['user'] 
         context['userGroup'] = request.session['userGroup']             
         
-        return render(request, 'finance_semakan.html', context)                                                 
+        return render(request, 'mbpj_elaun_finance_semakan.html', context)                                                 
 
 class UserPengurusanView(View):
 
@@ -273,7 +273,7 @@ class UserPengurusanView(View):
         context['user'] = request.session['user'] 
         context['userGroup'] = request.session['userGroup']             
         
-        return render(request, 'sistem_pengurusan.html', context)                                                         
+        return render(request, 'mbpj_elaun_sistem_pengurusan.html', context)                                                         
 
 
 class UserPendaftaranView(View):
@@ -287,7 +287,7 @@ class UserPendaftaranView(View):
         context['user'] = request.session['user'] 
         context['userGroup'] = request.session['userGroup']             
         
-        return render(request, 'sistem_pendaftaran.html', context)        
+        return render(request, 'mbpj_elaun_sistem_pendaftaran.html', context)        
 
 class UserMaintenanceView(View):
 
@@ -300,7 +300,7 @@ class UserMaintenanceView(View):
         context['user'] = request.session['user'] 
         context['userGroup'] = request.session['userGroup']             
         
-        return render(request, 'sistem_maintenance.html', context)        
+        return render(request, 'mbpj_elaun_sistem_maintenance.html', context)        
 
 
 class UserBantuanView(View):
@@ -314,7 +314,7 @@ class UserBantuanView(View):
         context['user'] = request.session['user'] 
         context['userGroup'] = request.session['userGroup']             
         
-        return render(request, 'bantuan.html', context)                
+        return render(request, 'mbpj_elaun_bantuan.html', context)                
 
 
 class UserLaporanView(View):
@@ -328,7 +328,7 @@ class UserLaporanView(View):
         context['user'] = request.session['user'] 
         context['userGroup'] = request.session['userGroup']             
         
-        return render(request, 'laporan.html', context)              
+        return render(request, 'mbpj_elaun_laporan.html', context)              
 
 
 class UserProfilView(View):
@@ -343,7 +343,7 @@ class UserProfilView(View):
         context['userGroup'] = request.session['userGroup']    
         context['form'] = TukarPasswordForm()
         
-        return render(request, 'profil.html', context)           
+        return render(request, 'mbpj_elaun_profil.html', context)           
 
     def post(self, request):
 

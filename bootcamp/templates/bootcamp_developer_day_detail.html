@@ -1,0 +1,46 @@
+
+{% extends "bootcamp_base.html" %}
+{% load static %}
+
+{% block title %}
+Developer Basic Training
+{% endblock %}
+
+{% block content %}
+<div class="row mt-6">
+
+  <div class="col-md-12">
+
+      <h1>Developer Bootcamp</h1>
+      <h3>Day {{day.no}}: {{day.name}}</h3>
+      <p>{{day.description}}</p>
+  
+  </div>
+
+</div>
+<div class="row mt-3">
+
+  <div class="col-md-10">
+
+      {{ html_note | safe }}
+  
+  </div>
+
+  <div class="col-md-2">
+    <div class="row">
+      <button type="button" class="btn btn-success">Submit</button>
+    </div> 
+    <div class="row mt-3">
+      <button type="button" class="btn btn-danger">Help</button>     
+    </div>                   
+  </div>
+
+</div>
+{% endblock %}
+
+{% block javascript %}
+
+  
+{% endblock %}  
+
+ 
