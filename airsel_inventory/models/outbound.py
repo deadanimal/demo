@@ -6,7 +6,7 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 #from phonenumber_field.modelfields import PhoneNumberField
 
 
-class GrnInterfaceInterface(models.Model):
+class Grn(models.Model):
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
 
@@ -52,7 +52,7 @@ class GrnInterfaceInterface(models.Model):
     def __str__(self):
         return self.id   
 
-class InventoryTransactionInterface(models.Model):
+class AinventoryTransaction(models.Model):
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
 

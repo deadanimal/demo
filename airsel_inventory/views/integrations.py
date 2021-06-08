@@ -19,7 +19,10 @@ from django_filters.rest_framework import DjangoFilterBackend
 from helpers.billplz import create_bill
 from helpers.qr import generate_image_qr_from_text
 
-from ..models.outbound import GrnInterfaceInterface, InventoryTransactionInterface
+from ..models.outbound import (
+    Grn,
+    AinventoryTransaction
+)
 
 
 class OutboundView(View):
@@ -33,9 +36,9 @@ class OutboundView(View):
         business = request.GET['business']
 
         if interface == 'GRNTransactions':
-            data_ = GrnInterfaceInterface.objects.all()
+            data_ = Grn.objects.all()
         elif interface == 'InventoryTransactions':
-            data_ = InventoryTransactionInterface.objects.all()
+            data_ = AinventoryTransaction.objects.all()
 
         empty_ = []
         for item in data_:
