@@ -42,11 +42,39 @@ class DashboardView(View):
         return render(request, 'kpdnhep_eaduan_dashboard.html', context)
 
 
+class ChatroomListView(View):
+
+    def get(self, request):
+        context = {}    
+        return render(request, 'kpdnhep_eaduan_dashboard.html', context)
+
+
+class ChatroomDetailView(View):
+
+    def get(self, request):
+        context = {}    
+        return render(request, 'kpdnhep_eaduan_dashboard.html', context)
+
+
+class LaporanListView(View):
+
+    def get(self, request):
+        context = {}    
+        return render(request, 'kpdnhep_eaduan_dashboard.html', context)
+
+
+class LaporanDetailView(View):
+
+    def get(self, request):
+        context = {}    
+        return render(request, 'kpdnhep_eaduan_dashboard.html', context)
+
+
 class WebhookView(View):
 
     def post(self, request):
 
-        _data = request.data
+        _data = request.body
         MesejWhatsapp.objects.create(
             message_sid = _data['MessageSid'] ,
             account_sid = _data['AccountSid'] ,
