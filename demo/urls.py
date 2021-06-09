@@ -15,4 +15,5 @@ urlpatterns = [
     # Project
     path('airsel-inventory/', include('airsel_inventory.urls')),
     path('mbpj-elaun/', include('mbpj_elaun.urls')),
+    path('kpdnhep-eaduan/', include('kpdnhep_eaduan.urls')),
 ]

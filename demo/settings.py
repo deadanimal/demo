@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     # Project
     'airsel_inventory',
     'mbpj_elaun',
+    'kpdnhep_eaduan'
 
 ]
 
