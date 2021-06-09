@@ -15,6 +15,16 @@ from django_filters.rest_framework import DjangoFilterBackend
 
 from rest_framework import routers, serializers, viewsets
 
+
+from ..models.outbound import (
+    Grn,
+    AinventoryTransaction
+)
+
+from ..serializers.outbound import (
+    GrnSerializer,
+    AinventoryTransactionSerializer
+)
 # from ..models.outbound import (
 #     GrnInterfaceInterface,
 #     GrnInterface2Interface,
@@ -30,40 +40,40 @@ from rest_framework import routers, serializers, viewsets
 #     InventoryTransactionFromMaintenanceInterfaceSerializer
 # )
 
-# class APIGrnInterfaceInterfaceViewSet(viewsets.ModelViewSet):
-#     queryset = GrnInterfaceInterface.objects.all()
-#     serializer_class = GrnInterfaceInterfaceSerializer
-#     filter_backends = (DjangoFilterBackend, SearchFilter, OrderingFilter)
+class APIGrnViewSet(viewsets.ModelViewSet):
+    queryset = Grn.objects.all()
+    serializer_class = GrnSerializer
+    filter_backends = (DjangoFilterBackend, SearchFilter, OrderingFilter)
 
-#     def get_permissions(self):
-#         if self.action == 'list':
-#             permission_classes = [AllowAny] # IsAuthenticated
-#         else:
-#             permission_classes = [AllowAny]
+    def get_permissions(self):
+        if self.action == 'list':
+            permission_classes = [AllowAny] # IsAuthenticated
+        else:
+            permission_classes = [AllowAny]
 
-#         return [permission() for permission in permission_classes]    
+        return [permission() for permission in permission_classes]    
          
-#     def get_queryset(self):
-#         queryset = GrnInterfaceInterface.objects.all()            
-#         return queryset       
+    def get_queryset(self):
+        queryset = Grn.objects.all()            
+        return queryset       
 
 
-# class APIGrnInterface2InterfaceViewSet(viewsets.ModelViewSet):
-#     queryset = GrnInterface2Interface.objects.all()
-#     serializer_class = GrnInterface2InterfaceSerializer
-#     filter_backends = (DjangoFilterBackend, SearchFilter, OrderingFilter)
+class APIAinventoryTransactionViewSet(viewsets.ModelViewSet):
+    queryset = AinventoryTransaction.objects.all()
+    serializer_class = AinventoryTransactionSerializer
+    filter_backends = (DjangoFilterBackend, SearchFilter, OrderingFilter)
 
-#     def get_permissions(self):
-#         if self.action == 'list':
-#             permission_classes = [AllowAny] # IsAuthenticated
-#         else:
-#             permission_classes = [AllowAny]
+    def get_permissions(self):
+        if self.action == 'list':
+            permission_classes = [AllowAny] # IsAuthenticated
+        else:
+            permission_classes = [AllowAny]
 
-#         return [permission() for permission in permission_classes]    
+        return [permission() for permission in permission_classes]    
          
-#     def get_queryset(self):
-#         queryset = GrnInterface2Interface.objects.all()            
-#         return queryset                 
+    def get_queryset(self):
+        queryset = AinventoryTransaction.objects.all()            
+        return queryset                 
 
 # class APIInventoryTransactionInterfaceViewSet(viewsets.ModelViewSet):
 #     queryset = InventoryTransactionInterface.objects.all()

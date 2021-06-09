@@ -9,39 +9,18 @@ from rest_framework import serializers
 from django.utils.timezone import now
 
 from ..models.outbound import (
-    GrnInterfaceInterface,
-    GrnInterface2Interface,
-    InventoryTransactionInterface,
-    InventoryTransactionFromProjectInterface,
-    InventoryTransactionFromMaintenanceInterface
+    Grn,
+    AinventoryTransaction
 )
 
-class GrnInterfaceInterfaceSerializer(serializers.ModelSerializer):
+class GrnSerializer(serializers.ModelSerializer):
     class Meta:
-        model = GrnInterfaceInterface
+        model = Grn
         fields = '__all__'
         read_only_fields = ['id']
 
-class GrnInterface2InterfaceSerializer(serializers.ModelSerializer):
+class AinventoryTransactionSerializer(serializers.ModelSerializer):
     class Meta:
-        model = GrnInterface2Interface
+        model = AinventoryTransaction
         fields = '__all__'
         read_only_fields = ['id']   
-
-class InventoryTransactionInterfaceSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = InventoryTransactionInterface
-        fields = '__all__'
-        read_only_fields = ['id']    
-
-class InventoryTransactionFromProjectInterfaceSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = InventoryTransactionFromProjectInterface
-        fields = '__all__'
-        read_only_fields = ['id']    
-
-class InventoryTransactionFromMaintenanceInterfaceSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = InventoryTransactionFromMaintenanceInterface
-        fields = '__all__'
-        read_only_fields = ['id']                                 
