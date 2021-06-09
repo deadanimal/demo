@@ -46,7 +46,7 @@ class WebhookView(View):
 
     def post(self, request):
 
-        _data = request.POST
+        _data = request.data
         MesejWhatsapp.objects.create(
             message_sid = _data['MessageSid'] ,
             account_sid = _data['AccountSid'] ,
