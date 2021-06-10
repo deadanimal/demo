@@ -11,6 +11,9 @@ from django.shortcuts import render, redirect, reverse
 from django.views.generic import View
 from django.views.decorators.csrf import csrf_exempt
 
+from urllib.parse import urlparse, parse_qs
+
+
 from ..models.main import (
     MesejWhatsapp
 )
@@ -85,7 +88,10 @@ class WebhookView(View):
     @csrf_exempt
     def post(self, request):
 
-        _data = request.body
+        data_string = request.body
+        _data = parse_qs(data_string.query)
+        print(_data)
+
         MesejWhatsapp.objects.create(
             message_sid = _data['MessageSid'] ,
             account_sid = _data['AccountSid'] ,
