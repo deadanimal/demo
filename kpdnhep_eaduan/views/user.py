@@ -88,10 +88,10 @@ class WebhookView(View):
     @csrf_exempt
     def post(self, request):
 
-        data_string = 'https://url.com/asd?' + request.body.decode("utf-8") 
-        print(data_string)
-        _data = parse_qs(data_string.query)
-        print(_data)
+        url = 'https://url.com/asd?' + request.body.decode("utf-8") 
+        print(url)
+        parsed = urlparse.urlparse(url)
+        print(parse_qs(parsed.query))
 
         MesejWhatsapp.objects.create(
             message_sid = _data['MessageSid'] ,
