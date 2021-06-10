@@ -89,6 +89,7 @@ class WebhookView(View):
     def post(self, request):
 
         data_string = request.body
+        print(data_string)
         _data = parse_qs(data_string.query)
         print(_data)
 
