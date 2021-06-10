@@ -43,6 +43,14 @@ class DashboardView(View):
         return render(request, 'kpdnhep_eaduan_dashboard.html', context)
 
 
+class BantuanView(View):
+
+    def get(self, request):
+        context = {}    
+        return render(request, 'kpdnhep_eaduan_bantuan.html', context)
+
+
+
 class ChatroomListView(View):
 
     def get(self, request):

@@ -129,3 +129,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 USE_TZ = False
+
+
+CORS_ORIGIN_ALLOW_ALL = True
