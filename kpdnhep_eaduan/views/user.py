@@ -9,6 +9,7 @@ from django.http import Http404, JsonResponse
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect, reverse
 from django.views.generic import View
+from django.views.decorators.csrf import csrf_exempt
 
 from ..models.main import (
     MesejWhatsapp
@@ -70,6 +71,7 @@ class LaporanDetailView(View):
         return render(request, 'kpdnhep_eaduan_dashboard.html', context)
 
 
+@csrf_exempt
 class WebhookView(View):
 
     def post(self, request):
@@ -83,6 +85,6 @@ class WebhookView(View):
             whatsapp_id = _data['WaId']             
         )
         
-        return JsonResponse({'status': 201})
+        return HttpResponse(status=200)
 
 
