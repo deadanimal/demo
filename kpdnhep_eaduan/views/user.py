@@ -13,7 +13,6 @@ from django.views.decorators.csrf import csrf_exempt
 
 from urllib.parse import urlparse, parse_qs
 
-
 from ..models.main import (
     MesejWhatsapp
 )
@@ -99,8 +98,9 @@ class WebhookView(View):
 
         url = 'https://url.com/asd?' + request.body.decode("utf-8") 
         print(url)
-        parsed = urlparse.urlparse(url)
-        _data = parse_qs(parsed.query)
+        parsed_url = urlparse(url)
+        _data = parse_qs(parsed_url.query)
+        print(_data)
 
         MesejWhatsapp.objects.create(
             message_sid = _data['MessageSid'] ,
