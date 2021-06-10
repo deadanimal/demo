@@ -71,9 +71,10 @@ class LaporanDetailView(View):
         return render(request, 'kpdnhep_eaduan_dashboard.html', context)
 
 
-@csrf_exempt
+
 class WebhookView(View):
 
+    @csrf_exempt
     def post(self, request):
 
         _data = request.body
