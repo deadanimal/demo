@@ -46,11 +46,20 @@ class DashboardView(View):
         return render(request, 'kpdnhep_eaduan_dashboard.html', context)
 
 
-class BantuanView(View):
+
+
+class BantuanListView(View):
 
     def get(self, request):
         context = {}    
-        return render(request, 'kpdnhep_eaduan_bantuan.html', context)
+        return render(request, 'kpdnhep_eaduan_dashboard.html', context)
+
+
+class BantuanDetailView(View):
+
+    def get(self, request):
+        context = {}    
+        return render(request, 'kpdnhep_eaduan_dashboard.html', context)
 
 
 
