@@ -13,6 +13,11 @@ from django.views.decorators.csrf import csrf_exempt
 
 from urllib.parse import urlparse, parse_qs
 
+
+from ..dummy.message import (
+    basic_reply
+)
+
 from ..helpers.message import (
     send_message
 )
@@ -117,17 +122,17 @@ class WebhookView(View):
         change_language_en = '#TUKAREN'
         
         if aduan in body:
-            pass
+            send_message(whatsapp_id, "message aduan template")   
         elif semak in body:
-            pass
+            send_message(whatsapp_id, "message semak template")   
         elif faq in body:
-            pass
+            send_message(whatsapp_id, "message faq template")   
         elif change_language_bm in body:
-            pass
+            send_message(whatsapp_id, "message change language bm")   
         elif change_language_en in body:
-            pass
+            send_message(whatsapp_id, "message change language en")   
         else:
-            send_message(whatsapp_id, "hello this is standard reply!")     
+            send_message(whatsapp_id, basic_reply)     
 
 
         MesejWhatsapp.objects.create(
