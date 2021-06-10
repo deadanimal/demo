@@ -13,6 +13,10 @@ from django.views.decorators.csrf import csrf_exempt
 
 from urllib.parse import urlparse, parse_qs
 
+from ..helpers.message import (
+    send_message
+)
+
 from ..models.main import (
     MesejWhatsapp
 )
@@ -97,17 +101,41 @@ class WebhookView(View):
     def post(self, request):
 
         url = 'https://url.com/asd?' + request.body.decode("utf-8") 
-        print(url)
         parsed_url = urlparse(url)
         _data = parse_qs(parsed_url.query)
-        print(_data)
+
+        message_sid = _data['MessageSid'][0]
+        account_sid = _data['AccountSid'][0]
+        profile_name = _data['ProfileName'][0]
+        body = _data['Body'][0]
+        whatsapp_id = _data['WaId'][0]
+
+        aduan = '#ADUAN'
+        semak = '#SEMAK'
+        faq = '#FAQ'
+        change_language_bm = '#TUKARBM'
+        change_language_en = '#TUKAREN'
+        
+        if aduan in body:
+            pass
+        elif semak in body:
+            pass
+        elif faq in body:
+            pass
+        elif change_language_bm in body:
+            pass
+        elif change_language_en in body:
+            pass
+        else:
+            send_message(whatsapp_id, "hello this is standard reply!")     
+
 
         MesejWhatsapp.objects.create(
-            message_sid = _data['MessageSid'] ,
-            account_sid = _data['AccountSid'] ,
-            profile_name = _data['ProfileName'] ,
-            body = _data['Body'] ,
-            whatsapp_id = _data['WaId']             
+            message_sid = message_sid,
+            account_sid = account_sid,
+            profile_name = profile_name,
+            body = body,
+            whatsapp_id = whatsapp_id
         )
         
         return HttpResponse(status=200)
