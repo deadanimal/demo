@@ -91,7 +91,7 @@ class WebhookView(View):
         url = 'https://url.com/asd?' + request.body.decode("utf-8") 
         print(url)
         parsed = urlparse.urlparse(url)
-        print(parse_qs(parsed.query))
+        _data = parse_qs(parsed.query)
 
         MesejWhatsapp.objects.create(
             message_sid = _data['MessageSid'] ,
