@@ -88,7 +88,7 @@ class WebhookView(View):
     @csrf_exempt
     def post(self, request):
 
-        data_string = 'https://url.com/asd?' + str(request.body)
+        data_string = 'https://url.com/asd?' + request.body.decode("utf-8") 
         print(data_string)
         _data = parse_qs(data_string.query)
         print(_data)
