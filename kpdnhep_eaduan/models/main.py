@@ -77,7 +77,7 @@ class ChatroomMesej(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
 
     body = models.TextField(default='NA')
-    chatroom = models.ForeignKey(Chatroom, on_delete=models.CASCADE, null=False)
+    chatroom = models.ForeignKey(Chatroom, on_delete=models.CASCADE, null=True)
     pengguna = models.BooleanField(default=True)
 
     created_at = models.DateTimeField(auto_now_add=True)
