@@ -23,12 +23,13 @@ from ..helpers.message import (
 )
 
 from ..models.main import (
+    Laporan,
     MesejWhatsapp,
     Aduan,
     Bantuan,
     Chatroom,
-    ChatroomMesej
-
+    ChatroomMesej,
+    Laporan
 )
 
 
@@ -45,12 +46,6 @@ class LogoutView(View):
         return redirect('https://pipeline.com.my')
 
 
-class ChatroomView(View):
-
-    def get(self, request):
-        context = {}    
-        return render(request, 'kpdnhep_eaduan_chatroom.html', context)
-
 
 class DashboardView(View):
 
@@ -59,20 +54,37 @@ class DashboardView(View):
         return render(request, 'kpdnhep_eaduan_dashboard.html', context)
 
 
+class AduanListView(View):
+
+    def get(self, request):
+        context = {}   
+        context['aduans'] = Aduan.objects.all() 
+        return render(request, 'kpdnhep_eaduan_aduan_list.html', context)
+
+
+class AduanDetailView(View):
+
+    def get(self, request, aduan_id):
+        context = {}    
+        context['aduan'] = Aduan.objects.get(id=aduan_id)
+        return render(request, 'kpdnhep_eaduan_aduan_detail.html', context)
+
 
 
 class BantuanListView(View):
 
     def get(self, request):
-        context = {}    
-        return render(request, 'kpdnhep_eaduan_dashboard.html', context)
+        context = {}   
+        context['bantuans'] = Bantuan.objects.all() 
+        return render(request, 'kpdnhep_eaduan_bantuan_list.html', context)
 
 
 class BantuanDetailView(View):
 
-    def get(self, request):
+    def get(self, request, bantuan_id):
         context = {}    
-        return render(request, 'kpdnhep_eaduan_dashboard.html', context)
+        context['bantuan'] = Bantuan.objects.get(id=bantuan_id)
+        return render(request, 'kpdnhep_eaduan_bantuan_detail.html', context)
 
 
 
@@ -80,8 +92,6 @@ class ChatroomListView(View):
 
     def get(self, request):
         context = {}    
-        
-        context['aduans'] = Aduan.objects.all()
         context['chatrooms'] = Chatroom.objects.all()
         
         return render(request, 'kpdnhep_eaduan_chatroom_list.html', context)
@@ -89,23 +99,28 @@ class ChatroomListView(View):
 
 class ChatroomDetailView(View):
 
-    def get(self, request):
+    def get(self, request, chatroom_id):
         context = {}    
-        return render(request, 'kpdnhep_eaduan_dashboard.html', context)
+        chatroom = Chatroom.objects.get(id=chatroom_id)
+        context['chatroom'] = chatroom
+        context['messages'] = ChatroomDetailView.objects.filter(chatroom=chatroom.id)
+        return render(request, 'kpdnhep_eaduan_chatroom_detail.html', context)
 
 
 class LaporanListView(View):
 
     def get(self, request):
         context = {}    
-        return render(request, 'kpdnhep_eaduan_dashboard.html', context)
+        context['laporans'] = Laporan.objects.all()
+        return render(request, 'kpdnhep_eaduan_laporan_list.html', context)
 
 
 class LaporanDetailView(View):
 
-    def get(self, request):
+    def get(self, request, laporan_id):
         context = {}    
-        return render(request, 'kpdnhep_eaduan_dashboard.html', context)
+        context['laporan'] = Laporan.objects.get(id=laporan_id)
+        return render(request, 'kpdnhep_eaduan_laporan_detail.html', context)
 
 
 

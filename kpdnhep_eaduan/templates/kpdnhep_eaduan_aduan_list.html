@@ -1,0 +1,69 @@
+
+{% extends "kpdnhep_eaduan_base.html" %}
+{% load static %}
+
+{% block title %}
+Aduan List
+{% endblock %}
+
+{% block content %}
+<div class="row">
+
+  <div class="col-md-12">
+
+      <h1>Aduan List</h1>
+
+
+      <div class="table-responsive py-4">
+        <table class="table table-flush" id="datatable-basic">
+            <thead class="thead-light">
+                <tr>
+                    <!-- <th>No</th> -->
+                    <th>Tarikh</th>
+                    <th>Whatsapp ID</th>
+                    <th>Tujuan</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                {% for aduan in aduans %}
+                <tr>
+                  <!-- <td>{{ forloop.counter }}</td> -->
+                  <td>{{ aduan.created_at | date:"d-m-Y h:i A" }}</td>
+                  <td><a href="/kpdnhep-eaduan/aduan/{{aduan.id}}">{{ aduan.whatsapp_id }}</a></td>
+                  <td>asign or reject</td>
+                </tr>
+                {% empty %}
+                <tr>
+                  <td colspan="6">Tiada Rekod</td>
+                </tr>            
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>             
+  
+  </div>
+
+</div>
+{% endblock %}
+
+{% block javascript %}
+<script>
+
+  $(document).ready(function() {
+      // Datatable
+      var table = $('#datatable-basic').DataTable({
+        dom: 'Bfrtip',
+          buttons: [
+            'excel', 'pdf', 
+          ]      
+          
+      });
+
+  } );
+
+  </script>
+  
+{% endblock %}  
+
+ 

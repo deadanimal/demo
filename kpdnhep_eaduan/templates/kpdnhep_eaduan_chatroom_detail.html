@@ -3,15 +3,21 @@
 {% load static %}
 
 {% block title %}
-Chatroom List
+Chatroom Detail
 {% endblock %}
 
 {% block content %}
 <div class="row">
 
   <div class="col-md-12">
-   
 
+      <h1>List of Aduan To Be Filtered</h1>
+
+      {% for aduan in aduans %}
+      <p>{{ aduan.whatsapp_id }}</p>
+      {% empty %}
+        <p>Aduan query empty</p>      
+      {% endfor %}
       
       <h1>List of Chatroom</h1>
 
@@ -21,28 +27,14 @@ Chatroom List
       {% empty %}
         <p>Chatroom query empty</p>
       {% endfor %}      
-
+  
   </div>
 
 </div>
 {% endblock %}
 
 {% block javascript %}
-<script>
 
-  $(document).ready(function() {
-      // Datatable
-      var table = $('#datatable-basic').DataTable({
-        dom: 'Bfrtip',
-          buttons: [
-            'excel', 'pdf', 
-          ]      
-          
-      });
-
-  } );
-
-  </script>
   
 {% endblock %}  
 

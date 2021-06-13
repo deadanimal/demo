@@ -38,7 +38,21 @@ class Bantuan(models.Model):
         ordering = ['-created_at']
 
     def __str__(self):
-        return self.id        
+        return self.id      
+
+
+class Laporan(models.Model):
+    
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)        
+
+    class Meta:
+        ordering = ['-created_at']
+
+    def __str__(self):
+        return self.id            
 
 
 class Aduan(models.Model):
@@ -62,7 +76,8 @@ class Chatroom(models.Model):
     
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
 
-    whatsapp_id = models.CharField(max_length=255, default='NA')    
+    whatsapp_id = models.CharField(max_length=255, default='NA', unique=True)  
+    active = models.BooleanField(default=False)  
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)        

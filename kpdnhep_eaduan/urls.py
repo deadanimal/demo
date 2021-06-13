@@ -13,10 +13,15 @@ urlpatterns = [
     path('login', LoginView.as_view(), name='kpdnhep_eaduan_login'),
     path('logout', LogoutView.as_view(), name='kpdnhep_eaduan_logout'),
 
+    path('aduan/', AduanListView.as_view(), name='kpdnhep_eaduan_aduan_list'),
+    path('aduan/<uuid:aduan_id>', AduanDetailView.as_view(), name='kpdnhep_eaduan_aduan_detail'),    
+
     path('bantuan/', BantuanListView.as_view(), name='kpdnhep_eaduan_bantuan_list'),
     path('bantuan/<uuid:bantuan_id>', BantuanDetailView.as_view(), name='kpdnhep_eaduan_bantuan_detail'),
+    
     path('chatroom/', ChatroomListView.as_view(), name='kpdnhep_eaduan_chatroom_list'),
     path('chatroom/<uuid:chatroom_id>', ChatroomDetailView.as_view(), name='kpdnhep_eaduan_chatroom_detail'),
+    
     path('laporan/', LaporanListView.as_view(), name='kpdnhep_eaduan_laporan_list'),
     path('laporan/<uuid:laporan_id>', LaporanDetailView.as_view(), name='kpdnhep_eaduan_laporan_detail'),
 
