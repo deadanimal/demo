@@ -23,7 +23,12 @@ from ..helpers.message import (
 )
 
 from ..models.main import (
-    MesejWhatsapp
+    MesejWhatsapp,
+    Aduan,
+    Bantuan,
+    Chatroom,
+    ChatroomMesej
+
 )
 
 
@@ -115,22 +120,30 @@ class WebhookView(View):
         body = _data['Body'][0]
         whatsapp_id = _data['WaId'][0]
 
-        aduan = '#ADUAN'
+        aduan = '#TAMAT'
         semak = '#SEMAK'
         faq = '#FAQ'
         change_language_bm = '#TUKARBM'
         change_language_en = '#TUKAREN'
+        chat_ = '#CHAT'
         
         if aduan in body:
-            send_message(whatsapp_id, "message aduan template")   
+            send_message(whatsapp_id, "Reply by KPDNHEP representative will arrive soon.")   
+            aduan = Aduan.objects.create(whatsapp_id=whatsapp_id)
         elif semak in body:
-            send_message(whatsapp_id, "message semak template")   
+            send_message(whatsapp_id, "Number semakan adalah")   
         elif faq in body:
-            send_message(whatsapp_id, "message faq template")   
+            send_message(whatsapp_id, "Message FAQ adalah")   
         elif change_language_bm in body:
-            send_message(whatsapp_id, "message change language bm")   
+            send_message(whatsapp_id, "Bahasa ditukar ke Bahasa Malaysia")   
         elif change_language_en in body:
-            send_message(whatsapp_id, "message change language en")   
+            send_message(whatsapp_id, "Language changed to English")   
+        elif chat_ in body:
+            chatroom = Chatroom.objects.get_or_create(whatsapp_id=whatsapp_id)              
+            ChatroomMesej.objects.create(
+                chatroom = chatroom.id,
+                body=body
+            )
         else:
             send_message(whatsapp_id, basic_reply)     
 
