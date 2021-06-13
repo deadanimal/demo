@@ -1,0 +1,37 @@
+
+{% extends "kpdnhep_eaduan_base.html" %}
+{% load static %}
+
+{% block title %}
+Chatrrom
+{% endblock %}
+
+{% block content %}
+<div class="row">
+
+  <div class="col-md-12">
+
+      <h1>List of Aduan To Be Filtered</h1>
+
+      {% for aduan in aduans %}
+      <p>{{ aduan.whatsapp_id }}</p>
+      {% endfor %}
+      
+      <h1>List of Chatroom</h1>
+
+
+      {% for chatroom in chatrooms %}
+      <p>{{ chatroom.whatsapp_id }}</p>
+      {% endfor %}      
+  
+  </div>
+
+</div>
+{% endblock %}
+
+{% block javascript %}
+
+  
+{% endblock %}  
+
+ 

@@ -46,6 +46,7 @@ class Aduan(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
 
     whatsapp_id = models.CharField(max_length=255, default='NA')
+    body = models.TextField(default='NA')    
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)        

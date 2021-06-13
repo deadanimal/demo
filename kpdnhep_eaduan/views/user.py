@@ -80,7 +80,11 @@ class ChatroomListView(View):
 
     def get(self, request):
         context = {}    
-        return render(request, 'kpdnhep_eaduan_dashboard.html', context)
+        
+        context['aduans'] = Aduan.objects.all()
+        context['chatrooms'] = Chatroom.objects.all()
+        
+        return render(request, 'kpdnhep_eaduan_chatroom_list.html', context)
 
 
 class ChatroomDetailView(View):
@@ -129,7 +133,10 @@ class WebhookView(View):
         
         if aduan in body:
             send_message(whatsapp_id, "Reply by KPDNHEP representative will arrive soon.")   
-            aduan = Aduan.objects.create(whatsapp_id=whatsapp_id)
+            aduan = Aduan.objects.create(
+                whatsapp_id=whatsapp_id,
+                body=body                
+            )
         elif semak in body:
             send_message(whatsapp_id, "Number semakan adalah")   
         elif faq in body:
