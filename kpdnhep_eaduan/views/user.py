@@ -15,7 +15,8 @@ from urllib.parse import urlparse, parse_qs
 
 
 from ..dummy.message import (
-    basic_reply
+    basic_reply,
+    faq_reply
 )
 
 from ..helpers.message import (
@@ -71,9 +72,14 @@ class AduanDetailView(View):
             if request.GET['action'] == 'tugas':
                 aduan.tugas = True
                 aduan.save()
+                Chatroom.objects.create(
+                    whatsapp_id=aduan.whatsapp_id,
+                    active=True
+                )
+                return redirect('kpdnhep_eaduan_chatroom_list')     
             elif request.GET['action'] == 'buang':
                 aduan.delete()
-            return redirect('kpdnhep_eaduan_aduan_list')     
+                return redirect('kpdnhep_eaduan_aduan_list')     
 
         context = {}    
         context['aduan'] = aduan
@@ -111,10 +117,25 @@ class ChatroomDetailView(View):
 
     def get(self, request, chatroom_id):
         context = {}    
-        chatroom = Chatroom.objects.get(id=chatroom_id)
-        context['chatroom'] = chatroom
-        context['messages'] = ChatroomDetailView.objects.filter(chatroom=chatroom.id)
-        return render(request, 'kpdnhep_eaduan_chatroom_detail.html', context)
+        chatroom = Chatroom.objects.filter(id=chatroom_id).first()
+        if chatroom:
+            context['chatroom'] = chatroom
+            context['wamessages'] = MesejWhatsapp.objects.filter(whatsapp_id=chatroom.whatsapp_id)
+            return render(request, 'kpdnhep_eaduan_chatroom_detail.html', context)
+        else:
+            return redirect('kpdnhep_eaduan_chatroom_list')
+
+    def post(self, request, chatroom_id):
+        data = request.POST
+        mesej = data['mesej']
+        whatsapp_id = data['whatsapp_id']
+        MesejWhatsapp.objects.create(
+            message_sid = 'KPDNHEP',
+            whatsapp_id = whatsapp_id,
+            body = mesej
+        )
+        send_message(whatsapp_id, mesej)
+        return redirect('kpdnhep_eaduan_chatroom_detail', chatroom_id= chatroom_id)
 
 
 class LaporanListView(View):
@@ -157,19 +178,18 @@ class WebhookView(View):
         chat_ = '#CHAT'
         
         if aduan in body:
-            send_message(whatsapp_id, "Reply by KPDNHEP representative will arrive soon.")   
             aduan = Aduan.objects.create(
                 whatsapp_id=whatsapp_id,
                 body=body                
             )
         elif semak in body:
-            send_message(whatsapp_id, "Number semakan adalah")   
+            send_message(whatsapp_id, "Number semakan adalah.... Template semakan diperlukan")   
         elif faq in body:
-            send_message(whatsapp_id, "Message FAQ adalah")   
+            send_message(whatsapp_id, faq_reply)   
         elif change_language_bm in body:
             send_message(whatsapp_id, "Bahasa ditukar ke Bahasa Malaysia")   
         elif change_language_en in body:
-            send_message(whatsapp_id, "Language changed to English")   
+            send_message(whatsapp_id, "Language changed to English, template in English is required...")   
         elif chat_ in body:
             chatroom = Chatroom.objects.get_or_create(whatsapp_id=whatsapp_id)              
             ChatroomMesej.objects.create(

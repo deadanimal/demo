@@ -11,7 +11,38 @@ Bantuan List
 
   <div class="col-md-12">
 
-      <h1>Bantuan List</h1>
+      <h1>Senarai Bantuan</h1>
+
+      <div class="table-responsive py-4">
+        <table class="table table-flush" id="datatable-basic">
+            <thead class="thead-light">
+                <tr>
+                    <!-- <th>No</th> -->
+                    <th>Tarikh</th>
+                    <th>Bentuk</th>
+                    <th>Nama & Deskripsi</th>
+                    <th>Tujuan</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                {% for chatroom in chatrooms %}
+                <tr>
+                  <!-- <td>{{ forloop.counter }}</td> -->
+                  <td>{{ chatroom.created_at | date:"d-m-Y h:i A" }}</td>
+                  <td>{{ chatroom.whatsapp_id }}</a></td>
+                  <td>
+                    <a href="/kpdnhep-eaduan/chatroom/{{chatroom.id}}" class="text-info">Baca Lanjut</a>
+                  </td>
+                </tr>
+                {% empty %}
+                <tr>
+                  <td colspan="6">Tiada Rekod</td>
+                </tr>            
+                {% endfor %}
+            </tbody>
+        </table>
+      </div>         
   
   </div>
 
@@ -19,8 +50,21 @@ Bantuan List
 {% endblock %}
 
 {% block javascript %}
+<script>
 
-  
+  $(document).ready(function() {
+      // Datatable
+      var table = $('#datatable-basic').DataTable({
+        dom: 'Bfrtip',
+          buttons: [
+            'excel', 'pdf', 
+          ]      
+          
+      });
+
+  } );
+
+</script>  
 {% endblock %}  
 
  

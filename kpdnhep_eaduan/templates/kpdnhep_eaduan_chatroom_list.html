@@ -13,14 +13,38 @@ Chatroom List
    
 
       
-      <h1>List of Chatroom</h1>
+      <h1>Senarai Chatroom</h1>
 
 
-      {% for chatroom in chatrooms %}
-        <p>{{ chatroom.whatsapp_id }}</p>
-      {% empty %}
-        <p>Chatroom query empty</p>
-      {% endfor %}      
+      <div class="table-responsive py-4">
+        <table class="table table-flush" id="datatable-basic">
+            <thead class="thead-light">
+                <tr>
+                    <!-- <th>No</th> -->
+                    <th>Tarikh</th>
+                    <th>Whatsapp ID</th>
+                    <th>Tujuan</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                {% for chatroom in chatrooms %}
+                <tr>
+                  <!-- <td>{{ forloop.counter }}</td> -->
+                  <td>{{ chatroom.created_at | date:"d-m-Y h:i A" }}</td>
+                  <td>{{ chatroom.whatsapp_id }}</a></td>
+                  <td>
+                    <a href="/kpdnhep-eaduan/chatroom/{{chatroom.id}}" class="text-info">Baca Lanjut</a>
+                  </td>
+                </tr>
+                {% empty %}
+                <tr>
+                  <td colspan="6">Tiada Rekod</td>
+                </tr>            
+                {% endfor %}
+            </tbody>
+        </table>
+      </div>    
 
   </div>
 

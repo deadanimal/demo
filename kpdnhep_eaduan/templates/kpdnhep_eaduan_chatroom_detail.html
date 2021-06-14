@@ -11,30 +11,60 @@ Chatroom Detail
 
   <div class="col-md-12">
 
-      <h1>List of Aduan To Be Filtered</h1>
+      <h1>Chatroom - {{chatroom.whatsapp_id}}</h1>
 
-      {% for aduan in aduans %}
-      <p>{{ aduan.whatsapp_id }}</p>
-      {% empty %}
-        <p>Aduan query empty</p>      
+      <form action="" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="whatsapp_id" value="{{chatroom.whatsapp_id}}">
+        <div class="form-group">
+          <label>Message</label>
+          <textarea class="form-control" name="mesej" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-default" >Hantar Mesej</button>
+      </form>
+
+      <hr/>      
+
+      {% for message in wamessages %}        
+        {% if message.message_sid == 'KPDNHEP' %}
+          <h3 class="text-danger">Message dari KPDNHEP</h3>
+        {% else %}
+          <h3 class="text-success">Message dari Pengguna</h3>
+        {% endif %}
+        <p>{{ message.body }}</p>
+        <small>Tarikh: {{ message.created_at }}</small>
+        <hr/>
       {% endfor %}
-      
-      <h1>List of Chatroom</h1>
-
-
-      {% for chatroom in chatrooms %}
-        <p>{{ chatroom.whatsapp_id }}</p>
-      {% empty %}
-        <p>Chatroom query empty</p>
-      {% endfor %}      
-  
   </div>
 
 </div>
 {% endblock %}
 
 {% block javascript %}
+<script>
 
+var inactivityTime = function () {
+    var time;
+    window.onload = resetTimer;
+    
+    document.onmousemove = resetTimer;
+    document.onkeydown = resetTimer;
+
+    function refresh() {
+        location.reload()
+    }
+
+    function resetTimer() {
+        clearTimeout(time);
+        time = setTimeout(refresh, 10000)
+    }
+};
+
+window.onload = function() {
+  inactivityTime();
+}  
+
+</script>
   
 {% endblock %}  
 
