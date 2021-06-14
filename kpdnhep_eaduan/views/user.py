@@ -57,6 +57,7 @@ class DashboardView(View):
 class AduanListView(View):
 
     def get(self, request):
+
         context = {}   
         context['aduans'] = Aduan.objects.all() 
         return render(request, 'kpdnhep_eaduan_aduan_list.html', context)
@@ -65,8 +66,17 @@ class AduanListView(View):
 class AduanDetailView(View):
 
     def get(self, request, aduan_id):
+        aduan = Aduan.objects.get(id=aduan_id)
+        if 'action' in request.GET:
+            if request.GET['action'] == 'tugas':
+                aduan.tugas = True
+                aduan.save()
+            elif request.GET['action'] == 'buang':
+                aduan.delete()
+            return redirect('kpdnhep_eaduan_aduan_list')     
+
         context = {}    
-        context['aduan'] = Aduan.objects.get(id=aduan_id)
+        context['aduan'] = aduan
         return render(request, 'kpdnhep_eaduan_aduan_detail.html', context)
 
 

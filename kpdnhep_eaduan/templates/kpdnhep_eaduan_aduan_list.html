@@ -30,8 +30,12 @@ Aduan List
                 <tr>
                   <!-- <td>{{ forloop.counter }}</td> -->
                   <td>{{ aduan.created_at | date:"d-m-Y h:i A" }}</td>
-                  <td><a href="/kpdnhep-eaduan/aduan/{{aduan.id}}">{{ aduan.whatsapp_id }}</a></td>
-                  <td>asign or reject</td>
+                  <td>{{ aduan.whatsapp_id }}</a></td>
+                  <td>
+                    <a href="/kpdnhep-eaduan/aduan/{{aduan.id}}" class="text-info">Baca Lanjut</a> |
+                    <a href="/kpdnhep-eaduan/aduan/{{aduan.id}}?action=tugas" class="text-success">Tugas</a> |
+                    <a href="/kpdnhep-eaduan/aduan/{{aduan.id}}?action=buang" class="text-danger">Buang</a>
+                  </td>
                 </tr>
                 {% empty %}
                 <tr>

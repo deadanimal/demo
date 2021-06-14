@@ -124,11 +124,9 @@ STATICFILES_DIRS = [
     os.path.join(SETTINGS_PATH, 'static')
 ]
 
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 USE_TZ = True
-
 
 CORS_ORIGIN_ALLOW_ALL = True
