@@ -81,7 +81,7 @@ class ElaunTuntutan(models.Model):
 
     nric = models.CharField(max_length=255, null=True)
     kod_pekerja = models.CharField(max_length=255, null=True)    
-    elaun = models.ManyToManyField(Elaun, null=True)
+    elaun = models.ForeignKey(Elaun, on_delete=models.CASCADE, null=True)
 
 
     created_at = models.DateTimeField(auto_now_add=True) 

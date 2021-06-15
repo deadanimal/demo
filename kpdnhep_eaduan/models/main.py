@@ -6,6 +6,8 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db.models.base import Model
 from django.db.models.fields import CharField
 
+from helpers.general import PathAndRename
+
 
 class MesejWhatsapp(models.Model):
     
@@ -36,7 +38,19 @@ class Bantuan(models.Model):
         ('B', 'Dokumen Pembangunan'),
     )
 
-    jenis_bantuan = models.CharField(max_length=1, choices=JENIS, null=False)
+    jenis_bantuan = models.CharField(max_length=1, choices=JENIS, default='A')
+
+    TOPIK = (
+        ('A', 'Gangguan Sistem'),
+        ('B', 'Pertanyaan'),
+    )
+
+    topik_bantuan = models.CharField(max_length=1, choices=TOPIK, default='A')    
+    mesej = models.TextField(default='NA')
+
+    dokumen = models.FileField(null=True, upload_to=PathAndRename('kpdnhep'))
+    daripada_syarikat = models.BooleanField(default=False)
+
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)        

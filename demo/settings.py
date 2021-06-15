@@ -130,3 +130,5 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 USE_TZ = True
 
 CORS_ORIGIN_ALLOW_ALL = True
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'

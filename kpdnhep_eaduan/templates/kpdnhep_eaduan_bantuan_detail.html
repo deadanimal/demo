@@ -11,8 +11,20 @@ Bantuan Detail
 
   <div class="col-md-12">
 
-      <h1>Bantuan Detail</h1>
-  
+      <h1>Bantuan</h1>
+      <h4>
+        Jenis Bantuan - 
+        {% if bantuan.jenis_bantuan == 'A' %}
+          Gangguan Sistem
+        {% else %}
+          Pertanyaan
+        {% endif %}
+      </h4>
+      <p>
+        {{bantuan.mesej}}
+      </p>
+
+      <small>{{ bantuan.created_at }}</small>
   </div>
 
 </div>

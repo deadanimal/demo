@@ -94,6 +94,15 @@ class BantuanListView(View):
         context['bantuans'] = Bantuan.objects.all() 
         return render(request, 'kpdnhep_eaduan_bantuan_list.html', context)
 
+    def post(self, request):
+        _data = request.POST
+        print(_data)
+        Bantuan.objects.create(
+            jenis_bantuan=_data['jenis_bantuan'],
+            mesej=_data['mesej']
+        )
+        return redirect('kpdnhep_eaduan_bantuan_list')
+
 
 class BantuanDetailView(View):
 
@@ -126,9 +135,9 @@ class ChatroomDetailView(View):
             return redirect('kpdnhep_eaduan_chatroom_list')
 
     def post(self, request, chatroom_id):
-        data = request.POST
-        mesej = data['mesej']
-        whatsapp_id = data['whatsapp_id']
+        _data = request.POST
+        mesej = _data['mesej']
+        whatsapp_id = _data['whatsapp_id']
         MesejWhatsapp.objects.create(
             message_sid = 'KPDNHEP',
             whatsapp_id = whatsapp_id,

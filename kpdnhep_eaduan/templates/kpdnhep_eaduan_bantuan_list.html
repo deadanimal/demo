@@ -20,19 +20,26 @@ Bantuan List
                     <!-- <th>No</th> -->
                     <th>Tarikh</th>
                     <th>Bentuk</th>
-                    <th>Nama & Deskripsi</th>
+                    <th>Soalan</th>
                     <th>Tujuan</th>
                 </tr>
             </thead>
             <tbody>
 
-                {% for chatroom in chatrooms %}
+                {% for bantuan in bantuans %}
                 <tr>
                   <!-- <td>{{ forloop.counter }}</td> -->
-                  <td>{{ chatroom.created_at | date:"d-m-Y h:i A" }}</td>
-                  <td>{{ chatroom.whatsapp_id }}</a></td>
+                  <td>{{ bantuan.created_at }}</td>
                   <td>
-                    <a href="/kpdnhep-eaduan/chatroom/{{chatroom.id}}" class="text-info">Baca Lanjut</a>
+                    {% if bantuan.jenis_bantuan == 'A' %}
+                      Gangguan Sistem
+                    {% elif bantuan.jenis_bantuan == 'B' %}
+                      Pertanyaan
+                    {% endif %}
+                  </td>
+                  <td>{{ bantuan.mesej }}</a></td>
+                  <td>
+                    <a href="/kpdnhep-eaduan/bantuan/{{bantuan.id}}" class="text-info">Baca Lanjut</a>
                   </td>
                 </tr>
                 {% empty %}
@@ -42,7 +49,30 @@ Bantuan List
                 {% endfor %}
             </tbody>
         </table>
-      </div>         
+      </div>       
+      
+      <hr/>
+
+      <form action="" method="POST">
+        {% csrf_token %}
+        <input type="hidden" value="">
+
+        <div class="form-group">
+          <label>Jenis Soalan</label>
+          <select class="form-control" name="jenis_bantuan">
+            <option value="A">Gangguan Sistem</option>
+            <option value="B">Pertanyaan</option>
+          </select>
+        </div>        
+
+        <div class="form-group">
+          <label>Soalan</label>
+          <textarea class="form-control" name="mesej" rows="3"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-default" >Hantar Soalan</button>
+      </form>      
+
   
   </div>
 
