@@ -10,38 +10,54 @@ class Grn(models.Model):
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
 
-    Header_Interface_Number = models.CharField(max_length=255, default='NA')
-    Receipt_Source_Code = models.CharField(max_length=255, default='NA')
-    Business_Unit = models.CharField(max_length=255, default='NA')
-    Transaction_Type = models.CharField(max_length=255, default='NA')
-    Receipt_Number = models.CharField(max_length=255, default='NA')
-    Supplier_Number = models.CharField(max_length=255, default='NA')
-    Supplier_Site_Code = models.CharField(max_length=255, default='NA')
-    Bill_Of_Lading = models.CharField(max_length=255, default='NA')
-    Packing_Slip = models.CharField(max_length=255, default='NA')
-    Carrier_Name = models.CharField(max_length=255, default='NA')
-    Waybill = models.CharField(max_length=255, default='NA')
-    Comments = models.CharField(max_length=255, default='NA')
-    Receiver_Name = models.CharField(max_length=255, default='NA')
-    Interface_Line_Number = models.CharField(max_length=255, default='NA')
-    Transaction_Type = models.CharField(max_length=255, default='NA')
-    Auto_Transact_Code = models.CharField(max_length=255, default='NA')
-    Transaction_Date = models.CharField(max_length=255, default='NA')
-    Source_Document_Code = models.CharField(max_length=255, default='NA')
-    Parent_Interface_Number = models.CharField(max_length=255, default='NA')
-    Organization_Code = models.CharField(max_length=255, default='NA')
-    Item_Number = models.CharField(max_length=255, default='NA')
-    Document_Number = models.CharField(max_length=255, default='NA')
-    Document_Line_Number = models.CharField(max_length=255, default='NA')
-    Document_Schedule_Number = models.CharField(max_length=255, default='NA')
-    Document_Distribution_Number = models.CharField(max_length=255, default='NA')
-    Subinventory = models.CharField(max_length=255, default='NA')
-    Quantity = models.CharField(max_length=255, default='NA')
-    UOM = models.CharField(max_length=255, default='NA')
-    Locator = models.CharField(max_length=255, default='NA')
-    Interface_Source_Code = models.CharField(max_length=255, default='NA')
-    Reason = models.CharField(max_length=255, default='NA')
-    Remarks = models.CharField(max_length=255, default='NA')    
+    Header_Interface_Number = models.CharField(max_length=255, default='')
+    Receipt_Source_Code = models.CharField(max_length=255, default='')
+    Business_Unit = models.CharField(max_length=255, default='')
+    Transaction_Type = models.CharField(max_length=255, default='')
+    Receipt_Number = models.CharField(max_length=255, default='')
+    Supplier_Number = models.CharField(max_length=255, default='')
+    Supplier_Site_Code = models.CharField(max_length=255, default='')
+    Bill_Of_Lading = models.CharField(max_length=255, default='')
+    Packing_Slip = models.CharField(max_length=255, default='')
+    Carrier_Name = models.CharField(max_length=255, default='')
+    Waybill = models.CharField(max_length=255, default='')
+    Comments = models.CharField(max_length=255, default='')
+    Receiver_Name = models.CharField(max_length=255, default='')
+    Interface_Line_Number = models.CharField(max_length=255, default='')
+
+    TRANSACTION_TYPE = [
+        ('00', 'RECEIVE'),
+        ('01', 'CORRECT'),
+        ('02', 'RETURN TO VENDOR'),
+
+        ('NA', ''),
+    ]
+
+    Transaction_Type = models.CharField(max_length=2, choices=TRANSACTION_TYPE, default='NA')
+
+    AUTO_TRANSACT_CODE = [
+        ('00', 'DELIVER'),
+
+        ('NA', ''),
+    ]
+
+    Auto_Transact_Code = models.CharField(max_length=2, choices=AUTO_TRANSACT_CODE, default='NA')
+    Transaction_Date = models.DateField(null=True)
+    Source_Document_Code = models.CharField(max_length=255, default='')
+    Parent_Interface_Number = models.CharField(max_length=255, default='')
+    Organization_Code = models.CharField(max_length=255, default='')
+    Item_Number = models.CharField(max_length=255, default='')
+    Document_Number = models.CharField(max_length=255, default='')
+    Document_Line_Number = models.CharField(max_length=255, default='')
+    Document_Schedule_Number = models.CharField(max_length=255, default='')
+    Document_Distribution_Number = models.CharField(max_length=255, default='')
+    Subinventory = models.CharField(max_length=255, default='')
+    Quantity = models.CharField(max_length=255, default='')
+    UOM = models.CharField(max_length=255, default='')
+    Locator = models.CharField(max_length=255, default='')
+    Interface_Source_Code = models.CharField(max_length=255, default='')
+    Reason = models.CharField(max_length=255, default='')
+    Remarks = models.CharField(max_length=255, default='')    
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)    
@@ -52,41 +68,94 @@ class Grn(models.Model):
     def __str__(self):
         return self.id   
 
-class AinventoryTransaction(models.Model):
+class InventoryTransaction(models.Model):
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
 
-    Organization_Name = models.CharField(max_length=255, default='NA')
-    Source_Code = models.CharField(max_length=255, default='NA')
-    Source_Header_Id  = models.CharField(max_length=255, default='NA')
-    Source_Line_Id  = models.CharField(max_length=255, default='NA')
-    Transaction_Date = models.CharField(max_length=255, default='NA')
-    Item_Number = models.CharField(max_length=255, default='NA')
-    Subinventory_Code = models.CharField(max_length=255, default='NA')
-    Locator_Rack = models.CharField(max_length=255, default='NA')
-    Locator_Row = models.CharField(max_length=255, default='NA')
-    Transaction_Quantity = models.CharField(max_length=255, default='NA')
-    Transaction_Uom = models.CharField(max_length=255, default='NA')
-    Transaction_Type_Name = models.CharField(max_length=255, default='NA')
-    Transaction_Reference = models.CharField(max_length=255, default='NA')
-    Dst_Segment1  = models.CharField(max_length=255, default='NA')
-    Dst_Segment2  = models.CharField(max_length=255, default='NA')
-    Dst_Segment3  = models.CharField(max_length=255, default='NA')
-    Dst_Segment4  = models.CharField(max_length=255, default='NA')
-    Dst_Segment5 = models.CharField(max_length=255, default='NA')
-    Dst_Segment6  = models.CharField(max_length=255, default='NA')
-    Dst_Segment7 = models.CharField(max_length=255, default='NA')
-    Use_Current_Cost  = models.CharField(max_length=255, default='NA')
-    Transaction_Cost_Identifier = models.CharField(max_length=255, default='NA')
-    Cost_Component_Code = models.CharField(max_length=255, default='NA')
-    Cost = models.CharField(max_length=255, default='NA')
-    Serial_Num_Identifier = models.CharField(max_length=255, default='NA')
-    From_Serial_Num = models.CharField(max_length=255, default='NA')
-    To_Serial_Num = models.CharField(max_length=255, default='NA')
-    Destination_Organization = models.CharField(max_length=255, default='NA')
-    Destination_Subinventory = models.CharField(max_length=255, default='NA')
-    Dest_Locator_Rack = models.CharField(max_length=255, default='NA')
-    Dest_Locator_Row = models.CharField(max_length=255, default='NA')
+    Organization_Name = models.CharField(max_length=255, default='')
+    Source_Code = models.CharField(max_length=255, default='')
+    Source_Header_Id  = models.CharField(max_length=255, default='')
+    Source_Line_Id  = models.CharField(max_length=255, default='')
+    Transaction_Date = models.CharField(max_length=255, default='')
+    Item_Number = models.CharField(max_length=255, default='')
+    Subinventory_Code = models.CharField(max_length=255, default='')
+    Locator_Rack = models.CharField(max_length=255, default='')
+    Locator_Row = models.CharField(max_length=255, default='')
+    Transaction_Quantity = models.CharField(max_length=255, default='')
+    Transaction_Uom = models.CharField(max_length=255, default='')
+    Transaction_Type_Name = models.CharField(max_length=255, default='')
+    Transaction_Reference = models.CharField(max_length=255, default='')
+    Dst_Segment1  = models.CharField(max_length=255, default='')
+    Dst_Segment2  = models.CharField(max_length=255, default='')
+    Dst_Segment3  = models.CharField(max_length=255, default='')
+    Dst_Segment4  = models.CharField(max_length=255, default='')
+    Dst_Segment5 = models.CharField(max_length=255, default='')
+    Dst_Segment6  = models.CharField(max_length=255, default='')
+    Dst_Segment7 = models.CharField(max_length=255, default='')
+    Use_Current_Cost  = models.CharField(max_length=255, default='')
+    Transaction_Cost_Identifier = models.CharField(max_length=255, default='')
+    Cost_Component_Code = models.CharField(max_length=255, default='')
+    Cost = models.CharField(max_length=255, default='')
+    Serial_Num_Identifier = models.CharField(max_length=255, default='')
+    From_Serial_Num = models.CharField(max_length=255, default='')
+    To_Serial_Num = models.CharField(max_length=255, default='')
+    Destination_Organization = models.CharField(max_length=255, default='')
+    Destination_Subinventory = models.CharField(max_length=255, default='')
+    Dest_Locator_Rack = models.CharField(max_length=255, default='')
+    Dest_Locator_Row = models.CharField(max_length=255, default='')
+
+    Dest_Locator_Rack = models.CharField(max_length=255, default='')
+    Dest_Locator_Row = models.CharField(max_length=255, default='')    
+
+    Project_Number = models.CharField(max_length=255, default='')
+    Task_Number = models.CharField(max_length=255, default='')
+    Expenditure_Type_Name = models.CharField(max_length=255, default='')
+    Expenditure_Item_Date = models.CharField(max_length=255, default='')
+    Expenditure_Org_Name = models.CharField(max_length=255, default='')
+    Mat_Req_Ref = models.CharField(max_length=255, default='')
+    Mat_Req_Ref_Value = models.CharField(max_length=255, default='')
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)    
+
+    class Meta:
+        ordering = ['-created_at']
+
+    def __str__(self):
+        return self.id        
+
+
+class MrTransaction(models.Model):
+
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+
+    Organization_Name = models.CharField(max_length=255, default='')
+    Source_Code = models.CharField(max_length=255, default='')
+    Source_Header_Id  = models.CharField(max_length=255, default='')
+    Source_Line_Id  = models.CharField(max_length=255, default='')
+    Transaction_Date = models.CharField(max_length=255, default='')
+    Item_Number = models.CharField(max_length=255, default='')
+    Subinventory_Code = models.CharField(max_length=255, default='')
+    Locator_Rack = models.CharField(max_length=255, default='')
+    Locator_Row = models.CharField(max_length=255, default='')
+    Transaction_Quantity = models.CharField(max_length=255, default='')
+    Transaction_Uom = models.CharField(max_length=255, default='')
+    Transaction_Type_Name = models.CharField(max_length=255, default='')
+    Transaction_Reference = models.CharField(max_length=255, default='')
+    Dst_Segment1  = models.CharField(max_length=255, default='')
+    Dst_Segment2  = models.CharField(max_length=255, default='')
+    Dst_Segment3  = models.CharField(max_length=255, default='')
+    Dst_Segment4  = models.CharField(max_length=255, default='')
+    Dst_Segment5 = models.CharField(max_length=255, default='')
+    Dst_Segment6  = models.CharField(max_length=255, default='')
+    Dst_Segment7 = models.CharField(max_length=255, default='')
+    Use_Current_Cost  = models.CharField(max_length=255, default='')
+    Transaction_Cost_Identifier = models.CharField(max_length=255, default='')
+    Cost_Component_Code = models.CharField(max_length=255, default='')
+    Cost = models.CharField(max_length=255, default='')
+    Serial_Num_Identifier = models.CharField(max_length=255, default='')
+    From_Serial_Num = models.CharField(max_length=255, default='')
+    To_Serial_Num = models.CharField(max_length=255, default='')
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)    

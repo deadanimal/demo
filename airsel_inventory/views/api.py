@@ -23,7 +23,8 @@ from airsel_inventory.viewsets.inbound import (
 
 from airsel_inventory.viewsets.outbound import (
     APIGrnViewSet,
-    APIAinventoryTransactionViewSet
+    APIInventoryTransactionViewSet,
+    APIMrTransactionViewSet
 )
 
 # from airsel_inventory.viewsets.outbound import (
@@ -37,7 +38,8 @@ from airsel_inventory.viewsets.outbound import (
 api_router = routers.DefaultRouter()
 
 api_router.register('outbound-grn', APIGrnViewSet, basename='api_outbound_grn')
-api_router.register('outbound-ainventory-transaction', APIAinventoryTransactionViewSet, basename='api__outbound_inventory_transaction')
+api_router.register('outbound-inventory-transaction', APIInventoryTransactionViewSet, basename='api__outbound_inventory_transaction')
+api_router.register('outbound-mr-transaction', APIMrTransactionViewSet, basename='api__outbound_mr_transaction')
 
 # api_router.register('inbound-purchase-order-interface', APIPurchaseOrderInterfaceViewSet, basename='api_inbound_purchase_order_interface')
 # api_router.register('inbound-material-request-interface', APIMaterialRequestInterfaceViewSet, basename='api_inbound_material_request_interface')

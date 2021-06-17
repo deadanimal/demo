@@ -21,7 +21,7 @@ from helpers.qr import generate_image_qr_from_text
 
 from ..models.outbound import (
     Grn,
-    AinventoryTransaction
+    InventoryTransaction
 )
 
 
@@ -38,7 +38,7 @@ class OutboundView(View):
         if interface == 'GRNTransactions':
             data_ = Grn.objects.all()
         elif interface == 'InventoryTransactions':
-            data_ = AinventoryTransaction.objects.all()
+            data_ = InventoryTransaction.objects.all()
 
         empty_ = []
         for item in data_:

@@ -18,12 +18,14 @@ from rest_framework import routers, serializers, viewsets
 
 from ..models.outbound import (
     Grn,
-    AinventoryTransaction
+    InventoryTransaction,
+    MrTransaction
 )
 
 from ..serializers.outbound import (
     GrnSerializer,
-    AinventoryTransactionSerializer
+    InventoryTransactionSerializer,
+    MrTransactionSerializer
 )
 # from ..models.outbound import (
 #     GrnInterfaceInterface,
@@ -58,9 +60,9 @@ class APIGrnViewSet(viewsets.ModelViewSet):
         return queryset       
 
 
-class APIAinventoryTransactionViewSet(viewsets.ModelViewSet):
-    queryset = AinventoryTransaction.objects.all()
-    serializer_class = AinventoryTransactionSerializer
+class APIInventoryTransactionViewSet(viewsets.ModelViewSet):
+    queryset = InventoryTransaction.objects.all()
+    serializer_class = InventoryTransactionSerializer
     filter_backends = (DjangoFilterBackend, SearchFilter, OrderingFilter)
 
     def get_permissions(self):
@@ -72,7 +74,7 @@ class APIAinventoryTransactionViewSet(viewsets.ModelViewSet):
         return [permission() for permission in permission_classes]    
          
     def get_queryset(self):
-        queryset = AinventoryTransaction.objects.all()            
+        queryset = InventoryTransaction.objects.all()            
         return queryset                 
 
 # class APIInventoryTransactionInterfaceViewSet(viewsets.ModelViewSet):
@@ -125,3 +127,21 @@ class APIAinventoryTransactionViewSet(viewsets.ModelViewSet):
 #     def get_queryset(self):
 #         queryset = InventoryTransactionFromMaintenanceInterface.objects.all()            
 #         return queryset                     
+
+
+class APIMrTransactionViewSet(viewsets.ModelViewSet):
+    queryset = MrTransaction.objects.all()
+    serializer_class = MrTransactionSerializer
+    filter_backends = (DjangoFilterBackend, SearchFilter, OrderingFilter)
+
+    def get_permissions(self):
+        if self.action == 'list':
+            permission_classes = [AllowAny] # IsAuthenticated
+        else:
+            permission_classes = [AllowAny]
+
+        return [permission() for permission in permission_classes]    
+         
+    def get_queryset(self):
+        queryset = MrTransaction.objects.all()            
+        return queryset  
