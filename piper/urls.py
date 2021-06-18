@@ -12,6 +12,9 @@ urlpatterns = [
     path('', DashboardView.as_view(), name='piper_dashboard'),
     path('login', LoginView.as_view(), name='piper_login'),
     path('logout', LogoutView.as_view(), name='piper_logout'),
+
+    path('checkins/', CheckinListView.as_view(), name='piper_checkin_list'),
+    path('checkins/<int:checkin>', CheckinDetailView.as_view(), name='piper_checkin_detail'),    
     
     path('projeks/', ProjekListView.as_view(), name='piper_projek_list'),
     path('projeks/<int:projek>', ProjekDetailView.as_view(), name='piper_projek_detail'),

@@ -19,13 +19,15 @@ from rest_framework import routers, serializers, viewsets
 from ..models.outbound import (
     Grn,
     InventoryTransaction,
-    MrTransaction
+    MrTransaction,
+    MrTransactionChild
 )
 
 from ..serializers.outbound import (
     GrnSerializer,
     InventoryTransactionSerializer,
-    MrTransactionSerializer
+    MrTransactionSerializer,
+    MrTransactionChildSerializer
 )
 # from ..models.outbound import (
 #     GrnInterfaceInterface,
@@ -145,3 +147,20 @@ class APIMrTransactionViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         queryset = MrTransaction.objects.all()            
         return queryset  
+
+class APIMrTransactionChildViewSet(viewsets.ModelViewSet):
+    queryset = MrTransactionChild.objects.all()
+    serializer_class = MrTransactionChildSerializer
+    filter_backends = (DjangoFilterBackend, SearchFilter, OrderingFilter)
+
+    def get_permissions(self):
+        if self.action == 'list':
+            permission_classes = [AllowAny] # IsAuthenticated
+        else:
+            permission_classes = [AllowAny]
+
+        return [permission() for permission in permission_classes]    
+         
+    def get_queryset(self):
+        queryset = MrTransactionChild.objects.all()            
+        return queryset          

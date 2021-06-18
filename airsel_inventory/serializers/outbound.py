@@ -11,7 +11,8 @@ from django.utils.timezone import now
 from ..models.outbound import (
     Grn,
     InventoryTransaction,
-    MrTransaction
+    MrTransaction,
+    MrTransactionChild
 )
 
 class GrnSerializer(serializers.ModelSerializer):
@@ -26,7 +27,17 @@ class InventoryTransactionSerializer(serializers.ModelSerializer):
         fields = '__all__'
         read_only_fields = ['id']   
 
+class MrTransactionChildSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = MrTransactionChild
+        fields = '__all__'
+        read_only_fields = ['id']        
+
 class MrTransactionSerializer(serializers.ModelSerializer):
+
+    child_items = MrTransactionChildSerializer(read_only=True, many=True)
+
     class Meta:
         model = MrTransaction
         fields = '__all__'
